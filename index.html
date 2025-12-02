@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Tyler - AI Engineer with Production Database Infrastructure Expertise. Building intelligent systems with a foundation in data.">
+    <title>Tyler - AI Engineer Portfolio</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="nav">
+        <div class="nav-container">
+            <div class="nav-logo">Tyler</div>
+            <ul class="nav-menu">
+                <li><a href="#about">About</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#contact" class="nav-cta">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <div class="hero-badge">Available for AI Engineering Roles</div>
+            <h1 class="hero-title">
+                AI Engineer Who Understands
+                <span class="gradient-text">Production Systems</span>
+            </h1>
+            <p class="hero-subtitle">
+                Building intelligent systems
+                with a foundation in data infrastructure, performance optimization, and production reliability.
+            </p>
+            <div class="hero-cta">
+                <a href="#projects" class="btn btn-primary">View Projects</a>
+                <a href="https://linkedin.com/in/yourprofile" target="_blank" class="btn btn-secondary">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
+                        <rect x="2" y="9" width="4" height="12"></rect>
+                        <circle cx="4" cy="4" r="2"></circle>
+                    </svg>
+                    LinkedIn
+                </a>
+            </div>
+        </div>
+        <div class="hero-visual">
+            <div class="floating-card">
+                <div class="card-icon">🤖</div>
+                <div class="card-text">Multi-Agent Systems</div>
+            </div>
+            <div class="floating-card" style="animation-delay: 0.5s;">
+                <div class="card-icon">🗄️</div>
+                <div class="card-text">Database Architecture</div>
+            </div>
+            <div class="floating-card" style="animation-delay: 1s;">
+                <div class="card-icon">⚡</div>
+                <div class="card-text">Production Ready</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">The Transition</h2>
+                <div class="section-line"></div>
+            </div>
+            <div class="about-content">
+                <div class="about-text">
+                    <p class="about-intro">
+                        After years as a Senior SQL Server DBA managing production databases, I recognized that 
+                        AI engineering is where data infrastructure meets intelligent systems. My database expertise 
+                        isn't a detour—it's my competitive advantage.
+                    </p>
+                    <p>
+                        I understand how to build systems that work in production: proper transaction management, 
+                        performance optimization, error handling, and scalability. Now I'm applying that foundation 
+                        to build AI systems with multi-agent architectures, RAG pipelines, and LangGraph orchestration.
+                    </p>
+                    <p>
+                        My portfolio demonstrates production-ready AI engineering with the reliability mindset 
+                        of someone who's been on call for mission-critical databases.
+                    </p>
+                </div>
+                <div class="about-stats">
+                    <div class="stat-card">
+                        <div class="stat-number">15+</div>
+                        <div class="stat-label">Years in Data</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">3</div>
+                        <div class="stat-label">AI Projects</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">100%</div>
+                        <div class="stat-label">Production Focus</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="projects">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Featured Projects</h2>
+                <div class="section-line"></div>
+            </div>
+
+            <!-- Project 1: AgentLint -->
+            <div class="project-card">
+                <div class="project-image">
+                    <img src="assets/agentlint-dashboard.png" alt="AgentLint Dashboard" onerror="this.src='https://via.placeholder.com/600x400/1a1a2e/00d9ff?text=AgentLint+Dashboard'">
+                    <div class="project-overlay">
+                        <span class="project-badge featured">Featured Project</span>
+                    </div>
+                </div>
+                <div class="project-content">
+                    <h3 class="project-title">AgentLint</h3>
+                    <p class="project-description">
+                        Production-ready multi-agent code review system featuring three specialized agents 
+                        (Security, Performance, Quality) orchestrated with LangGraph. Includes comprehensive 
+                        database design for review persistence, CLI tools for CI/CD integration, and Streamlit 
+                        dashboard for visualizing code quality trends.
+                    </p>
+                    <div class="project-highlight">
+                        <strong>Key Achievement:</strong> Debugged and fixed catastrophic regex backtracking 
+                        in the system's own codebase—demonstrating real production problem-solving.
+                    </div>
+                    <div class="tech-stack">
+                        <span class="tech-badge">LangGraph</span>
+                        <span class="tech-badge">Python</span>
+                        <span class="tech-badge">SQLite</span>
+                        <span class="tech-badge">Streamlit</span>
+                        <span class="tech-badge">OpenAI</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="https://github.com/yourusername/agentlint" target="_blank" class="project-link">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                            </svg>
+                            View Code
+                        </a>
+                        <a href="#" class="project-link">
+                            Read Article →
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Project 2: Conversational Data Analyst -->
+            <div class="project-card reverse">
+                <div class="project-image">
+                    <img src="assets/data-analyst-chat.png" alt="Conversational Data Analyst" onerror="this.src='https://via.placeholder.com/600x400/1a1a2e/00d9ff?text=Data+Analyst+Chat'">
+                </div>
+                <div class="project-content">
+                    <h3 class="project-title">Conversational Data Analyst</h3>
+                    <p class="project-description">
+                        RAG-powered natural language interface for database analysis. Features ChromaDB for 
+                        schema retrieval, intelligent SQL generation, automatic visualization, and context-aware 
+                        multi-turn conversations. Supports both OpenAI and Ollama models with a modern four-page 
+                        Streamlit interface.
+                    </p>
+                    <div class="project-highlight">
+                        <strong>DBA Advantage:</strong> Schema design and query optimization informed by years 
+                        of production database experience.
+                    </div>
+                    <div class="tech-stack">
+                        <span class="tech-badge">ChromaDB</span>
+                        <span class="tech-badge">LangChain</span>
+                        <span class="tech-badge">RAG</span>
+                        <span class="tech-badge">Streamlit</span>
+                        <span class="tech-badge">Ollama</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="https://github.com/yourusername/conversational-analyst" target="_blank" class="project-link">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                            </svg>
+                            View Code
+                        </a>
+                        <a href="#" class="project-link">
+                            Read Article →
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Project 3: Blog Post Generator -->
+            <div class="project-card">
+                <div class="project-image">
+                    <img src="assets/blog-generator-gui.png" alt="Blog Post Generator" onerror="this.src='https://via.placeholder.com/600x400/1a1a2e/00d9ff?text=Blog+Generator+GUI'">
+                </div>
+                <div class="project-content">
+                    <h3 class="project-title">AI Blog Post Generator</h3>
+                    <p class="project-description">
+                        Multi-agent content generation system with recursive Python file scanning, RAG-based 
+                        technical content creation, and automated editing workflow. Features a modern CustomTkinter 
+                        GUI with real-time progress tracking and comprehensive error handling.
+                    </p>
+                    <div class="tech-stack">
+                        <span class="tech-badge">LangChain</span>
+                        <span class="tech-badge">CustomTkinter</span>
+                        <span class="tech-badge">RAG</span>
+                        <span class="tech-badge">Multi-Agent</span>
+                        <span class="tech-badge">Python</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="https://github.com/yourusername/blog-generator" target="_blank" class="project-link">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                            </svg>
+                            View Code
+                        </a>
+                        <a href="#" class="project-link">
+                            Read Article →
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="skills">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Technical Foundation</h2>
+                <div class="section-line"></div>
+            </div>
+            <div class="skills-grid">
+                <div class="skill-category">
+                    <h3 class="skill-category-title">
+                        <span class="skill-icon">🗄️</span>
+                        Data Infrastructure
+                    </h3>
+                    <ul class="skill-list">
+                        <li>SQL Server (Expert)</li>
+                        <li>Database Architecture & Design</li>
+                        <li>Performance Optimization</li>
+                        <li>Transaction Management</li>
+                        <li>Production Database Operations</li>
+                        <li>Data Modeling</li>
+                        <li>Query Optimization</li>
+                    </ul>
+                </div>
+                <div class="skill-category">
+                    <h3 class="skill-category-title">
+                        <span class="skill-icon">🤖</span>
+                        AI/ML Engineering
+                    </h3>
+                    <ul class="skill-list">
+                        <li>LangChain & LangGraph</li>
+                        <li>Multi-Agent Systems</li>
+                        <li>RAG (Retrieval-Augmented Generation)</li>
+                        <li>Vector Databases (ChromaDB)</li>
+                        <li>OpenAI & Ollama</li>
+                        <li>Prompt Engineering</li>
+                        <li>Production AI Deployment</li>
+                    </ul>
+                </div>
+                <div class="skill-category">
+                    <h3 class="skill-category-title">
+                        <span class="skill-icon">☁️</span>
+                        Cloud & DevOps
+                    </h3>
+                    <ul class="skill-list">
+                        <li>AWS (SAA, Developer)</li>
+                        <li>Azure (Database Admin)</li>
+                        <li>CI/CD Integration</li>
+                        <li>Docker & Containers</li>
+                        <li>Git & Version Control</li>
+                    </ul>
+                </div>
+                <div class="skill-category">
+                    <h3 class="skill-category-title">
+                        <span class="skill-icon">💻</span>
+                        Development
+                    </h3>
+                    <ul class="skill-list">
+                        <li>Python (Expert)</li>
+                        <li>Streamlit & CustomTkinter</li>
+                        <li>REST APIs</li>
+                        <li>Testing & Debugging</li>
+                        <li>System Architecture</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Certifications -->
+            <div class="certifications">
+                <h3 class="certifications-title">Cloud & Data Certifications</h3>
+                <div class="cert-grid">
+                    <div class="cert-badge">
+                        <div class="cert-icon">☁️</div>
+                        <div class="cert-details">
+                            <div class="cert-name">AWS Solutions Architect</div>
+                            <div class="cert-level">Associate (SAA)</div>
+                        </div>
+                    </div>
+                    <div class="cert-badge">
+                        <div class="cert-icon">☁️</div>
+                        <div class="cert-details">
+                            <div class="cert-name">AWS Developer</div>
+                            <div class="cert-level">Associate</div>
+                        </div>
+                    </div>
+                    <div class="cert-badge">
+                        <div class="cert-icon">☁️</div>
+                        <div class="cert-details">
+                            <div class="cert-name">AWS Cloud Practitioner</div>
+                            <div class="cert-level">CLF</div>
+                        </div>
+                    </div>
+                    <div class="cert-badge">
+                        <div class="cert-icon">⚡</div>
+                        <div class="cert-details">
+                            <div class="cert-name">Azure Database Admin</div>
+                            <div class="cert-level">Associate</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <div class="contact-content">
+                <h2 class="contact-title">Let's Build Something Production-Ready</h2>
+                <div class="contact-links">
+                    <a href="https://linkedin.com/in/yourprofile" target="_blank" class="contact-btn primary">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
+                            <rect x="2" y="9" width="4" height="12"></rect>
+                            <circle cx="4" cy="4" r="2"></circle>
+                        </svg>
+                        Connect on LinkedIn
+                    </a>
+                    <a href="https://github.com/yourusername" target="_blank" class="contact-btn secondary">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                        </svg>
+                        View GitHub
+                    </a>
+                    <a href="mailto:your.email@example.com" class="contact-btn secondary">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                            <polyline points="22,6 12,13 2,6"></polyline>
+                        </svg>
+                        Email Me
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2024 Tyler. Built to demonstrate production-ready AI engineering.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
