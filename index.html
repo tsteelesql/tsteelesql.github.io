@@ -24,58 +24,43 @@
         </div>
     </nav>
 
-    <!-- Hero Section - Wireframe Layout -->
-    <section class="hero-wireframe">
-        <div class="wireframe-container">
-            <!-- Header Block -->
-            <div class="wireframe-block wireframe-header">
-                <div class="wireframe-label">HEADER</div>
-                <h1 class="wireframe-title">
-                    AI Engineer Who Understands
-                    <span class="wireframe-accent">Production Systems</span>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-container">
+            <div class="hero-content">
+                <div class="hero-eyebrow">AI Engineer</div>
+                <h1 class="hero-title">
+                    Production-Ready AI Systems
+                    <span class="hero-subtitle">Built by Someone Who Understands Data</span>
                 </h1>
-            </div>
-
-            <!-- Description Block -->
-            <div class="wireframe-block wireframe-description">
-                <div class="wireframe-label">DESCRIPTION</div>
-                <p class="wireframe-text">
-                    Building intelligent systems with a foundation in data infrastructure, 
-                    performance optimization, and production reliability.
+                <p class="hero-description">
+                    I build intelligent systems that actually ship. LangGraph multi-agent architectures,
+                    RAG pipelines, and production tooling—backed by 15+ years of database engineering
+                    and a deep understanding of what makes systems reliable at scale.
                 </p>
-            </div>
-
-            <!-- Features Grid -->
-            <div class="wireframe-block wireframe-features">
-                <div class="wireframe-label">FEATURES</div>
-                <div class="wireframe-grid">
-                    <div class="wireframe-item">
-                        <div class="wireframe-item-label">Multi-Agent Systems</div>
-                        <div class="wireframe-item-icon">🤖</div>
+                <div class="hero-stats">
+                    <div class="hero-stat">
+                        <div class="stat-value">15+</div>
+                        <div class="stat-label">Years in Data Infrastructure</div>
                     </div>
-                    <div class="wireframe-item">
-                        <div class="wireframe-item-label">Database Architecture</div>
-                        <div class="wireframe-item-icon">🗄️</div>
+                    <div class="hero-stat">
+                        <div class="stat-value">3</div>
+                        <div class="stat-label">Production AI Projects</div>
                     </div>
-                    <div class="wireframe-item">
-                        <div class="wireframe-item-label">Production Ready</div>
-                        <div class="wireframe-item-icon">⚡</div>
+                    <div class="hero-stat">
+                        <div class="stat-value">100%</div>
+                        <div class="stat-label">Focus on Reliability</div>
                     </div>
                 </div>
-            </div>
-
-            <!-- Actions Block -->
-            <div class="wireframe-block wireframe-actions">
-                <div class="wireframe-label">ACTIONS</div>
-                <div class="wireframe-buttons">
-                    <a href="#projects" class="wireframe-btn wireframe-btn-primary">View Projects</a>
-                    <a href="https://linkedin.com/in/yourprofile" target="_blank" class="wireframe-btn wireframe-btn-secondary">
-                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <div class="hero-cta">
+                    <a href="#projects" class="btn btn-primary">View Projects</a>
+                    <a href="https://linkedin.com/in/yourprofile" target="_blank" class="btn btn-secondary">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                             <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
                             <rect x="2" y="9" width="4" height="12"></rect>
                             <circle cx="4" cy="4" r="2"></circle>
                         </svg>
-                        LinkedIn
+                        Connect on LinkedIn
                     </a>
                 </div>
             </div>
@@ -252,69 +237,193 @@
         </div>
     </section>
 
-    <!-- Skills Section -->
+    <!-- Skills Section - Stack → Proof -->
     <section id="skills" class="skills">
         <div class="container">
             <div class="section-header">
-                <h2 class="section-title">Technical Foundation</h2>
+                <h2 class="section-title">Applied Technical Capabilities</h2>
+                <p class="section-subtitle">Every technology backed by production work</p>
                 <div class="section-line"></div>
             </div>
-            <div class="skills-grid">
-                <div class="skill-category">
-                    <h3 class="skill-category-title">
-                        <span class="skill-icon">🗄️</span>
-                        Data Infrastructure
-                    </h3>
-                    <ul class="skill-list">
-                        <li>SQL Server (Expert)</li>
-                        <li>Database Architecture & Design</li>
-                        <li>Performance Optimization</li>
-                        <li>Transaction Management</li>
-                        <li>Production Database Operations</li>
-                        <li>Data Modeling</li>
-                        <li>Query Optimization</li>
-                    </ul>
+
+            <!-- Stack Proof Grid -->
+            <div class="stack-proof-grid">
+                <!-- AI/ML Stack -->
+                <div class="stack-category">
+                    <div class="stack-header">
+                        <span class="stack-icon">🤖</span>
+                        <h3 class="stack-title">AI/ML Engineering</h3>
+                    </div>
+
+                    <div class="proof-item">
+                        <div class="proof-tech">LangGraph Multi-Agent Orchestration</div>
+                        <div class="proof-link">
+                            <span class="proof-arrow">→</span>
+                            <a href="#projects" class="proof-project">AgentLint</a>
+                            <span class="proof-detail">3-agent review system with state management</span>
+                        </div>
+                    </div>
+
+                    <div class="proof-item">
+                        <div class="proof-tech">RAG (Retrieval-Augmented Generation)</div>
+                        <div class="proof-link">
+                            <span class="proof-arrow">→</span>
+                            <a href="#projects" class="proof-project">Conversational Data Analyst</a>
+                            <span class="proof-detail">Schema-aware query generation</span>
+                        </div>
+                        <div class="proof-link">
+                            <span class="proof-arrow">→</span>
+                            <a href="#projects" class="proof-project">Blog Generator</a>
+                            <span class="proof-detail">Code scanning & technical writing</span>
+                        </div>
+                    </div>
+
+                    <div class="proof-item">
+                        <div class="proof-tech">Vector Databases (ChromaDB)</div>
+                        <div class="proof-link">
+                            <span class="proof-arrow">→</span>
+                            <a href="#projects" class="proof-project">Conversational Data Analyst</a>
+                            <span class="proof-detail">Semantic schema retrieval</span>
+                        </div>
+                    </div>
+
+                    <div class="proof-item">
+                        <div class="proof-tech">LangChain Agent Frameworks</div>
+                        <div class="proof-link">
+                            <span class="proof-arrow">→</span>
+                            <a href="#projects" class="proof-project">All Projects</a>
+                            <span class="proof-detail">Production agent architecture</span>
+                        </div>
+                    </div>
                 </div>
-                <div class="skill-category">
-                    <h3 class="skill-category-title">
-                        <span class="skill-icon">🤖</span>
-                        AI/ML Engineering
-                    </h3>
-                    <ul class="skill-list">
-                        <li>LangChain & LangGraph</li>
-                        <li>Multi-Agent Systems</li>
-                        <li>RAG (Retrieval-Augmented Generation)</li>
-                        <li>Vector Databases (ChromaDB)</li>
-                        <li>OpenAI & Ollama</li>
-                        <li>Prompt Engineering</li>
-                        <li>Production AI Deployment</li>
-                    </ul>
+
+                <!-- Data Infrastructure Stack -->
+                <div class="stack-category">
+                    <div class="stack-header">
+                        <span class="stack-icon">🗄️</span>
+                        <h3 class="stack-title">Data Infrastructure</h3>
+                    </div>
+
+                    <div class="proof-item">
+                        <div class="proof-tech">Database Architecture & Design</div>
+                        <div class="proof-link">
+                            <span class="proof-arrow">→</span>
+                            <a href="#projects" class="proof-project">AgentLint</a>
+                            <span class="proof-detail">Normalized schema for review analytics</span>
+                        </div>
+                        <div class="proof-link">
+                            <span class="proof-arrow">→</span>
+                            <a href="#projects" class="proof-project">Conversational Data Analyst</a>
+                            <span class="proof-detail">Natural language SQL generation</span>
+                        </div>
+                    </div>
+
+                    <div class="proof-item">
+                        <div class="proof-tech">SQL & Query Optimization</div>
+                        <div class="proof-link">
+                            <span class="proof-arrow">→</span>
+                            <span class="proof-project">15+ Years Production DBA</span>
+                            <span class="proof-detail">SQL Server expert-level optimization</span>
+                        </div>
+                    </div>
+
+                    <div class="proof-item">
+                        <div class="proof-tech">Transaction Management & ACID</div>
+                        <div class="proof-link">
+                            <span class="proof-arrow">→</span>
+                            <span class="proof-project">Production Database Operations</span>
+                            <span class="proof-detail">Mission-critical system reliability</span>
+                        </div>
+                    </div>
                 </div>
-                <div class="skill-category">
-                    <h3 class="skill-category-title">
-                        <span class="skill-icon">☁️</span>
-                        Cloud & DevOps
-                    </h3>
-                    <ul class="skill-list">
-                        <li>AWS (SAA, Developer)</li>
-                        <li>Azure (Database Admin)</li>
-                        <li>CI/CD Integration</li>
-                        <li>Docker & Containers</li>
-                        <li>Git & Version Control</li>
-                    </ul>
+
+                <!-- Development Stack -->
+                <div class="stack-category">
+                    <div class="stack-header">
+                        <span class="stack-icon">💻</span>
+                        <h3 class="stack-title">Development</h3>
+                    </div>
+
+                    <div class="proof-item">
+                        <div class="proof-tech">Python (Expert)</div>
+                        <div class="proof-link">
+                            <span class="proof-arrow">→</span>
+                            <a href="#projects" class="proof-project">All Projects</a>
+                            <span class="proof-detail">Production-ready architectures</span>
+                        </div>
+                    </div>
+
+                    <div class="proof-item">
+                        <div class="proof-tech">Streamlit UI Development</div>
+                        <div class="proof-link">
+                            <span class="proof-arrow">→</span>
+                            <a href="#projects" class="proof-project">AgentLint</a>
+                            <span class="proof-detail">Analytics dashboard</span>
+                        </div>
+                        <div class="proof-link">
+                            <span class="proof-arrow">→</span>
+                            <a href="#projects" class="proof-project">Conversational Data Analyst</a>
+                            <span class="proof-detail">Interactive query interface</span>
+                        </div>
+                    </div>
+
+                    <div class="proof-item">
+                        <div class="proof-tech">CLI & GUI Development</div>
+                        <div class="proof-link">
+                            <span class="proof-arrow">→</span>
+                            <a href="#projects" class="proof-project">AgentLint</a>
+                            <span class="proof-detail">Full CLI integration</span>
+                        </div>
+                        <div class="proof-link">
+                            <span class="proof-arrow">→</span>
+                            <a href="#projects" class="proof-project">Blog Generator</a>
+                            <span class="proof-detail">CustomTkinter modern GUI</span>
+                        </div>
+                    </div>
+
+                    <div class="proof-item">
+                        <div class="proof-tech">Production Debugging & Testing</div>
+                        <div class="proof-link">
+                            <span class="proof-arrow">→</span>
+                            <a href="#projects" class="proof-project">AgentLint</a>
+                            <span class="proof-detail">Fixed catastrophic regex backtracking</span>
+                        </div>
+                    </div>
                 </div>
-                <div class="skill-category">
-                    <h3 class="skill-category-title">
-                        <span class="skill-icon">💻</span>
-                        Development
-                    </h3>
-                    <ul class="skill-list">
-                        <li>Python (Expert)</li>
-                        <li>Streamlit & CustomTkinter</li>
-                        <li>REST APIs</li>
-                        <li>Testing & Debugging</li>
-                        <li>System Architecture</li>
-                    </ul>
+
+                <!-- Cloud & DevOps Stack -->
+                <div class="stack-category">
+                    <div class="stack-header">
+                        <span class="stack-icon">☁️</span>
+                        <h3 class="stack-title">Cloud & DevOps</h3>
+                    </div>
+
+                    <div class="proof-item">
+                        <div class="proof-tech">AWS Solutions Architecture</div>
+                        <div class="proof-link">
+                            <span class="proof-arrow">→</span>
+                            <span class="proof-project">AWS SAA & Developer Certified</span>
+                            <span class="proof-detail">Production cloud deployments</span>
+                        </div>
+                    </div>
+
+                    <div class="proof-item">
+                        <div class="proof-tech">Azure Database Administration</div>
+                        <div class="proof-link">
+                            <span class="proof-arrow">→</span>
+                            <span class="proof-project">Azure DB Admin Certified</span>
+                            <span class="proof-detail">Enterprise database management</span>
+                        </div>
+                    </div>
+
+                    <div class="proof-item">
+                        <div class="proof-tech">Git & Version Control</div>
+                        <div class="proof-link">
+                            <span class="proof-arrow">→</span>
+                            <a href="#projects" class="proof-project">All Projects</a>
+                            <span class="proof-detail">Professional development workflow</span>
+                        </div>
+                    </div>
                 </div>
             </div>
 
