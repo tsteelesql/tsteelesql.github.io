@@ -124,124 +124,130 @@
         </div>
     </section>
 
-    <!-- Projects Section -->
+    <!-- Projects Section - Magazine Layout -->
     <section id="projects" class="projects">
         <div class="container">
             <div class="section-header">
-                <h2 class="section-title">Featured Projects</h2>
-                <div class="section-line"></div>
+                <div class="magazine-label">FEATURED WORK</div>
+                <h2 class="section-title">Projects That Ship</h2>
+                <p class="section-subtitle">Production-ready AI systems built with database precision</p>
             </div>
 
-            <!-- Project 1: AgentLint -->
-            <div class="project-card">
-                <div class="project-image">
-                    <img src="assets/agentlint-dashboard.png" alt="AgentLint Dashboard" loading="lazy">
-                    <div class="project-overlay">
-                        <span class="project-badge featured">Featured Project</span>
+            <div class="magazine-grid">
+                <!-- Featured Project - Large Hero Card -->
+                <article class="mag-card mag-featured">
+                    <div class="mag-badge-corner">Featured</div>
+                    <div class="mag-image-wrapper">
+                        <img src="assets/agentlint-dashboard.png" alt="AgentLint Dashboard" loading="lazy">
+                        <div class="mag-overlay"></div>
                     </div>
-                </div>
-                <div class="project-content">
-                    <h3 class="project-title">AgentLint</h3>
-                    <p class="project-description">
-                        Production-ready multi-agent code review system featuring three specialized agents 
-                        (Security, Performance, Quality) orchestrated with LangGraph. Includes comprehensive 
-                        database design for review persistence, CLI tools for CI/CD integration, and Streamlit 
-                        dashboard for visualizing code quality trends.
-                    </p>
-                    <div class="project-highlight">
-                        <strong>Key Achievement:</strong> Debugged and fixed catastrophic regex backtracking 
-                        in the system's own codebase—demonstrating real production problem-solving.
+                    <div class="mag-content">
+                        <div class="mag-meta">
+                            <span class="mag-category">Multi-Agent System</span>
+                            <span class="mag-dot">•</span>
+                            <span class="mag-type">Production Tool</span>
+                        </div>
+                        <h3 class="mag-title">AgentLint</h3>
+                        <p class="mag-excerpt">
+                            Production-ready multi-agent code review system with three specialized agents
+                            orchestrated via LangGraph. Comprehensive database design, CLI integration,
+                            and analytics dashboard.
+                        </p>
+                        <div class="mag-highlight">
+                            <div class="mag-highlight-icon">⚡</div>
+                            <div class="mag-highlight-text">
+                                <strong>Real-World Impact:</strong> Fixed catastrophic regex backtracking
+                                in production—proving the tool works on itself.
+                            </div>
+                        </div>
+                        <div class="mag-tech">
+                            <span>LangGraph</span>
+                            <span>Python</span>
+                            <span>SQLite</span>
+                            <span>Streamlit</span>
+                            <span>OpenAI</span>
+                        </div>
+                        <div class="mag-actions">
+                            <a href="https://github.com/yourusername/agentlint" target="_blank" class="mag-btn mag-btn-primary">
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                                    <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                                </svg>
+                                View Repository
+                            </a>
+                            <a href="#" class="mag-btn mag-btn-text">Read Article →</a>
+                        </div>
                     </div>
-                    <div class="tech-stack">
-                        <span class="tech-badge">LangGraph</span>
-                        <span class="tech-badge">Python</span>
-                        <span class="tech-badge">SQLite</span>
-                        <span class="tech-badge">Streamlit</span>
-                        <span class="tech-badge">OpenAI</span>
-                    </div>
-                    <div class="project-links">
-                        <a href="https://github.com/yourusername/agentlint" target="_blank" class="project-link">
-                            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
-                                <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
-                            </svg>
-                            View Code
-                        </a>
-                        <a href="#" class="project-link">
-                            Read Article →
-                        </a>
-                    </div>
-                </div>
-            </div>
+                </article>
 
-            <!-- Project 2: Conversational Data Analyst -->
-            <div class="project-card reverse">
-                <div class="project-image">
-                    <img src="assets/data-analyst-chat.png" alt="Conversational Data Analyst" loading="lazy">
-                </div>
-                <div class="project-content">
-                    <h3 class="project-title">Conversational Data Analyst</h3>
-                    <p class="project-description">
-                        RAG-powered natural language interface for database analysis. Features ChromaDB for 
-                        schema retrieval, intelligent SQL generation, automatic visualization, and context-aware 
-                        multi-turn conversations. Supports both OpenAI and Ollama models with a modern four-page 
-                        Streamlit interface.
-                    </p>
-                    <div class="project-highlight">
-                        <strong>DBA Advantage:</strong> Schema design and query optimization informed by years 
-                        of production database experience.
+                <!-- Project 2 - Side Card -->
+                <article class="mag-card mag-side">
+                    <div class="mag-image-wrapper">
+                        <img src="assets/data-analyst-chat.png" alt="Conversational Data Analyst" loading="lazy">
+                        <div class="mag-overlay"></div>
                     </div>
-                    <div class="tech-stack">
-                        <span class="tech-badge">ChromaDB</span>
-                        <span class="tech-badge">LangChain</span>
-                        <span class="tech-badge">RAG</span>
-                        <span class="tech-badge">Streamlit</span>
-                        <span class="tech-badge">Ollama</span>
+                    <div class="mag-content">
+                        <div class="mag-meta">
+                            <span class="mag-category">RAG System</span>
+                        </div>
+                        <h3 class="mag-title">Conversational Data Analyst</h3>
+                        <p class="mag-excerpt">
+                            Natural language database interface with RAG-powered schema retrieval,
+                            intelligent SQL generation, and automatic visualization.
+                        </p>
+                        <div class="mag-callout">
+                            <strong>DBA Advantage:</strong> 15+ years of database expertise
+                            informing every query optimization.
+                        </div>
+                        <div class="mag-tech">
+                            <span>ChromaDB</span>
+                            <span>LangChain</span>
+                            <span>RAG</span>
+                            <span>Streamlit</span>
+                        </div>
+                        <div class="mag-actions">
+                            <a href="https://github.com/yourusername/conversational-analyst" target="_blank" class="mag-btn mag-btn-secondary">
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                                    <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                                </svg>
+                                GitHub
+                            </a>
+                            <a href="#" class="mag-btn mag-btn-text">Read More →</a>
+                        </div>
                     </div>
-                    <div class="project-links">
-                        <a href="https://github.com/yourusername/conversational-analyst" target="_blank" class="project-link">
-                            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
-                                <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
-                            </svg>
-                            View Code
-                        </a>
-                        <a href="#" class="project-link">
-                            Read Article →
-                        </a>
-                    </div>
-                </div>
-            </div>
+                </article>
 
-            <!-- Project 3: Blog Post Generator -->
-            <div class="project-card">
-                <div class="project-image">
-                    <img src="assets/blog-generator-gui.png" alt="Blog Post Generator" loading="lazy">
-                </div>
-                <div class="project-content">
-                    <h3 class="project-title">AI Blog Post Generator</h3>
-                    <p class="project-description">
-                        Multi-agent content generation system with recursive Python file scanning, RAG-based 
-                        technical content creation, and automated editing workflow. Features a modern CustomTkinter 
-                        GUI with real-time progress tracking and comprehensive error handling.
-                    </p>
-                    <div class="tech-stack">
-                        <span class="tech-badge">LangChain</span>
-                        <span class="tech-badge">CustomTkinter</span>
-                        <span class="tech-badge">RAG</span>
-                        <span class="tech-badge">Multi-Agent</span>
-                        <span class="tech-badge">Python</span>
+                <!-- Project 3 - Side Card -->
+                <article class="mag-card mag-side">
+                    <div class="mag-image-wrapper">
+                        <img src="assets/blog-generator-gui.png" alt="Blog Post Generator" loading="lazy">
+                        <div class="mag-overlay"></div>
                     </div>
-                    <div class="project-links">
-                        <a href="https://github.com/yourusername/blog-generator" target="_blank" class="project-link">
-                            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
-                                <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
-                            </svg>
-                            View Code
-                        </a>
-                        <a href="#" class="project-link">
-                            Read Article →
-                        </a>
+                    <div class="mag-content">
+                        <div class="mag-meta">
+                            <span class="mag-category">Content Automation</span>
+                        </div>
+                        <h3 class="mag-title">AI Blog Post Generator</h3>
+                        <p class="mag-excerpt">
+                            Multi-agent content system with recursive code scanning, RAG-based
+                            technical writing, and modern GUI with real-time progress tracking.
+                        </p>
+                        <div class="mag-tech">
+                            <span>LangChain</span>
+                            <span>CustomTkinter</span>
+                            <span>RAG</span>
+                            <span>Multi-Agent</span>
+                        </div>
+                        <div class="mag-actions">
+                            <a href="https://github.com/yourusername/blog-generator" target="_blank" class="mag-btn mag-btn-secondary">
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                                    <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                                </svg>
+                                GitHub
+                            </a>
+                            <a href="#" class="mag-btn mag-btn-text">Read More →</a>
+                        </div>
                     </div>
-                </div>
+                </article>
             </div>
         </div>
     </section>

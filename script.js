@@ -150,7 +150,7 @@ function initFadeInAnimations() {
 
     // Observe all animated elements
     const animatedElements = document.querySelectorAll(
-        '.project-card, .skill-category, .stat-card, .cert-badge'
+        '.mag-card, .skill-category, .stat-card, .cert-badge'
     );
     
     animatedElements.forEach(el => {
@@ -169,23 +169,23 @@ function initFadeInAnimations() {
  * Handle missing images gracefully without external requests
  */
 function initImageErrorHandling() {
-    document.querySelectorAll('.project-image img').forEach(img => {
+    document.querySelectorAll('.mag-image-wrapper img').forEach(img => {
         // Remove any existing onerror handlers to prevent external requests
         img.onerror = null;
-        
+
         // Check if image loads successfully
         img.addEventListener('error', function() {
             // Hide broken image and show placeholder
-            const container = this.closest('.project-image');
+            const container = this.closest('.mag-image-wrapper');
             if (container) {
                 container.classList.add('image-missing');
                 this.style.display = 'none';
             }
         });
-        
+
         // If image loads successfully, ensure container is updated
         img.addEventListener('load', function() {
-            const container = this.closest('.project-image');
+            const container = this.closest('.mag-image-wrapper');
             if (container) {
                 container.classList.remove('image-missing');
                 this.style.display = '';
@@ -195,16 +195,19 @@ function initImageErrorHandling() {
 }
 
 /**
- * Add hover effects to project images
+ * Add hover effects to magazine card images
  */
 function initImageHoverEffects() {
-    document.querySelectorAll('.project-image img').forEach(img => {
+    document.querySelectorAll('.mag-image-wrapper img').forEach(img => {
         img.addEventListener('mouseenter', function() {
-            this.style.filter = 'brightness(1.1)';
+            const wrapper = this.closest('.mag-image-wrapper');
+            if (wrapper) {
+                this.style.transform = 'scale(1.08)';
+            }
         });
-        
+
         img.addEventListener('mouseleave', function() {
-            this.style.filter = 'brightness(1)';
+            this.style.transform = 'scale(1)';
         });
     });
 }

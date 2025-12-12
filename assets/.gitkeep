@@ -1,0 +1,23 @@
+# Assets Folder
+
+This folder contains all images and media for the portfolio website.
+
+## Project Screenshots
+
+Add your project screenshots here with these exact filenames:
+
+### AgentLint
+- agentlint-dashboard.png (recommended: 800x500px)
+
+### Conversational Data Analyst
+- data-analyst-chat.png (recommended: 800x500px)
+
+### Blog Post Generator
+- blog-generator-gui.png (recommended: 800x500px)
+
+## Image Guidelines
+
+- Format: PNG or JPG
+- Recommended size: 800x500px (or similar 16:10 ratio)
+- Optimize images for web (use tools like TinyPNG)
+- Keep file sizes under 500KB for fast loading
