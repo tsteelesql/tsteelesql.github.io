@@ -1,3 +1,22 @@
+/**
+ * Portfolio Website Stylesheet
+ * 
+ * This stylesheet uses CSS custom properties (variables) for maintainability.
+ * All colors, spacing, transitions, and effects are defined in :root for easy customization.
+ * 
+ * Structure:
+ * - Global styles and CSS variables
+ * - Navigation
+ * - Hero section
+ * - About section
+ * - Projects section
+ * - Skills section
+ * - Contact section
+ * - Footer
+ * - Animations
+ * - Responsive design (mobile-first approach)
+ */
+
 /* ===================================
    Global Styles & Reset
    =================================== */
@@ -30,6 +49,28 @@
     
     /* Typography */
     --font-primary: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    
+    /* Border & Effects */
+    --border-radius-sm: 15px;
+    --border-radius-md: 20px;
+    --border-radius-lg: 30px;
+    --border-radius-full: 50px;
+    --border-width: 1px;
+    --box-shadow-sm: 0 5px 20px rgba(0, 217, 255, 0.1);
+    --box-shadow-md: 0 10px 30px rgba(0, 217, 255, 0.3);
+    --box-shadow-lg: 0 15px 40px rgba(0, 217, 255, 0.4);
+    
+    /* Transitions */
+    --transition-fast: 0.3s ease;
+    --transition-normal: 0.5s ease;
+    --transition-slow: 0.6s ease;
+    
+    /* Opacity Values */
+    --opacity-low: 0.1;
+    --opacity-medium: 0.2;
+    --opacity-high: 0.3;
+    --opacity-nav: 0.8;
+    --opacity-nav-scrolled: 0.95;
 }
 
 body {
@@ -53,11 +94,11 @@ body {
     position: fixed;
     top: 0;
     width: 100%;
-    background: rgba(10, 10, 15, 0.8);
+    background: rgba(10, 10, 15, var(--opacity-nav));
     backdrop-filter: blur(10px);
-    border-bottom: 1px solid rgba(0, 217, 255, 0.1);
+    border-bottom: var(--border-width) solid rgba(0, 217, 255, var(--opacity-low));
     z-index: 1000;
-    transition: all 0.3s ease;
+    transition: all var(--transition-fast);
 }
 
 .nav-container {
@@ -89,7 +130,7 @@ body {
     color: var(--text-secondary);
     text-decoration: none;
     font-weight: 500;
-    transition: color 0.3s ease;
+    transition: color var(--transition-fast);
     position: relative;
 }
 
@@ -105,7 +146,7 @@ body {
     width: 0;
     height: 2px;
     background: var(--gradient-2);
-    transition: width 0.3s ease;
+    transition: width var(--transition-fast);
 }
 
 .nav-menu a:hover::after {
@@ -115,7 +156,7 @@ body {
 .nav-cta {
     padding: 0.5rem 1.5rem;
     background: var(--gradient-2);
-    border-radius: 50px;
+    border-radius: var(--border-radius-full);
     color: white !important;
 }
 
@@ -124,141 +165,202 @@ body {
 }
 
 /* ===================================
-   Hero Section
+   Hero Section - Wireframe Layout
    =================================== */
-.hero {
+.hero-wireframe {
     min-height: 100vh;
+    padding-top: calc(80px + var(--spacing-md));
+    padding-bottom: var(--spacing-xl);
+    padding-left: var(--spacing-md);
+    padding-right: var(--spacing-md);
+    position: relative;
+    background: var(--bg-dark);
+}
+
+.wireframe-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    gap: var(--spacing-md);
+    grid-template-areas:
+        "header header header header header header header header header header header header"
+        "description description description description features features features features features features features features"
+        "actions actions actions actions actions actions actions actions actions actions actions actions";
+}
+
+.wireframe-block {
+    border: 2px dashed rgba(0, 217, 255, 0.4);
+    background: rgba(26, 26, 46, 0.2);
+    padding: var(--spacing-md);
+    position: relative;
+    transition: all var(--transition-fast);
+}
+
+.wireframe-block:hover {
+    border-color: rgba(0, 217, 255, 0.6);
+    background: rgba(26, 26, 46, 0.3);
+}
+
+.wireframe-label {
+    position: absolute;
+    top: -10px;
+    left: 10px;
+    background: var(--bg-dark);
+    padding: 0 0.5rem;
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: var(--accent-primary);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-family: 'Courier New', monospace;
+}
+
+.wireframe-header {
+    grid-area: header;
+    padding: var(--spacing-lg);
+    min-height: 200px;
     display: flex;
     align-items: center;
-    padding: var(--spacing-xl) var(--spacing-md);
-    position: relative;
-    overflow: hidden;
+    justify-content: center;
 }
 
-.hero::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: radial-gradient(circle at 20% 50%, rgba(0, 217, 255, 0.1) 0%, transparent 50%),
-                radial-gradient(circle at 80% 80%, rgba(102, 126, 234, 0.1) 0%, transparent 50%);
-    pointer-events: none;
-}
-
-.hero-content {
-    flex: 1;
-    max-width: 700px;
-    position: relative;
-    z-index: 1;
-}
-
-.hero-badge {
-    display: inline-block;
-    padding: 0.5rem 1rem;
-    background: rgba(0, 217, 255, 0.1);
-    border: 1px solid rgba(0, 217, 255, 0.3);
-    border-radius: 50px;
-    color: var(--accent-primary);
-    font-size: 0.875rem;
-    font-weight: 600;
-    margin-bottom: var(--spacing-md);
-    animation: fadeInUp 0.8s ease;
-}
-
-.hero-title {
-    font-size: 3.5rem;
+.wireframe-title {
+    font-size: 3rem;
     font-weight: 800;
     line-height: 1.2;
-    margin-bottom: var(--spacing-md);
-    animation: fadeInUp 0.8s ease 0.2s both;
+    color: var(--text-primary);
+    text-align: center;
 }
 
+.wireframe-accent {
+    display: block;
+    color: var(--accent-primary);
+    margin-top: 0.5rem;
+}
+
+.wireframe-description {
+    grid-area: description;
+    padding: var(--spacing-md);
+    min-height: 150px;
+    display: flex;
+    align-items: center;
+}
+
+.wireframe-text {
+    font-size: 1.125rem;
+    color: var(--text-secondary);
+    line-height: 1.8;
+    margin: 0;
+}
+
+.wireframe-features {
+    grid-area: features;
+    padding: var(--spacing-md);
+    min-height: 150px;
+}
+
+.wireframe-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--spacing-sm);
+    height: 100%;
+}
+
+.wireframe-item {
+    border: 1px solid rgba(0, 217, 255, 0.3);
+    background: rgba(0, 217, 255, 0.05);
+    padding: var(--spacing-sm);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    transition: all var(--transition-fast);
+}
+
+.wireframe-item:hover {
+    border-color: var(--accent-primary);
+    background: rgba(0, 217, 255, 0.1);
+}
+
+.wireframe-item-label {
+    font-size: 0.875rem;
+    color: var(--text-primary);
+    font-weight: 600;
+    text-align: center;
+}
+
+.wireframe-item-icon {
+    font-size: 2rem;
+}
+
+.wireframe-actions {
+    grid-area: actions;
+    padding: var(--spacing-md);
+    min-height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.wireframe-buttons {
+    display: flex;
+    gap: var(--spacing-sm);
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.wireframe-btn {
+    padding: 0.875rem 1.75rem;
+    border: 2px solid var(--accent-primary);
+    background: transparent;
+    color: var(--accent-primary);
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.9375rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    transition: all var(--transition-fast);
+    font-family: 'Courier New', monospace;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.wireframe-btn:hover {
+    background: var(--accent-primary);
+    color: var(--bg-dark);
+    transform: translateY(-2px);
+}
+
+.wireframe-btn-primary {
+    border-color: var(--accent-primary);
+    color: var(--accent-primary);
+}
+
+.wireframe-btn-primary:hover {
+    background: var(--accent-primary);
+    color: var(--bg-dark);
+}
+
+.wireframe-btn-secondary {
+    border-color: rgba(255, 255, 255, 0.3);
+    color: var(--text-primary);
+}
+
+.wireframe-btn-secondary:hover {
+    border-color: var(--accent-primary);
+    background: rgba(0, 217, 255, 0.1);
+    color: var(--accent-primary);
+}
+
+/* Keep gradient-text class for other sections */
 .gradient-text {
     background: var(--gradient-2);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
-}
-
-.hero-subtitle {
-    font-size: 1.25rem;
-    color: var(--text-secondary);
-    margin-bottom: var(--spacing-lg);
-    line-height: 1.8;
-    animation: fadeInUp 0.8s ease 0.4s both;
-}
-
-.hero-cta {
-    display: flex;
-    gap: 1rem;
-    flex-wrap: wrap;
-    animation: fadeInUp 0.8s ease 0.6s both;
-}
-
-.btn {
-    padding: 1rem 2rem;
-    border-radius: 50px;
-    font-weight: 600;
-    text-decoration: none;
-    transition: all 0.3s ease;
-    display: inline-flex;
-    align-items: center;
-    gap: 0.5rem;
-}
-
-.btn-primary {
-    background: var(--gradient-2);
-    color: white;
-    box-shadow: 0 10px 30px rgba(0, 217, 255, 0.3);
-}
-
-.btn-primary:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 15px 40px rgba(0, 217, 255, 0.4);
-}
-
-.btn-secondary {
-    background: rgba(255, 255, 255, 0.1);
-    color: var(--text-primary);
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    backdrop-filter: blur(10px);
-}
-
-.btn-secondary:hover {
-    background: rgba(255, 255, 255, 0.15);
-    transform: translateY(-2px);
-}
-
-.hero-visual {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    gap: 2rem;
-    align-items: center;
-    position: relative;
-}
-
-.floating-card {
-    background: rgba(26, 26, 46, 0.6);
-    backdrop-filter: blur(10px);
-    border: 1px solid rgba(0, 217, 255, 0.2);
-    border-radius: 20px;
-    padding: 1.5rem 2rem;
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-    animation: float 3s ease-in-out infinite;
-}
-
-.card-icon {
-    font-size: 2rem;
-}
-
-.card-text {
-    font-weight: 600;
-    color: var(--text-primary);
 }
 
 /* ===================================
@@ -319,11 +421,11 @@ body {
 .stat-card {
     background: rgba(26, 26, 46, 0.6);
     backdrop-filter: blur(10px);
-    border: 1px solid rgba(0, 217, 255, 0.2);
-    border-radius: 20px;
+    border: var(--border-width) solid rgba(0, 217, 255, var(--opacity-medium));
+    border-radius: var(--border-radius-md);
     padding: 2rem;
     text-align: center;
-    transition: all 0.3s ease;
+    transition: all var(--transition-fast);
 }
 
 .stat-card:hover {
@@ -361,10 +463,10 @@ body {
     margin-bottom: var(--spacing-xl);
     background: rgba(26, 26, 46, 0.4);
     backdrop-filter: blur(10px);
-    border: 1px solid rgba(0, 217, 255, 0.1);
-    border-radius: 30px;
+    border: var(--border-width) solid rgba(0, 217, 255, var(--opacity-low));
+    border-radius: var(--border-radius-lg);
     overflow: hidden;
-    transition: all 0.3s ease;
+    transition: all var(--transition-fast);
 }
 
 .project-card:hover {
@@ -387,13 +489,39 @@ body {
 .project-image {
     position: relative;
     overflow: hidden;
+    background: linear-gradient(135deg, rgba(0, 217, 255, 0.1) 0%, rgba(0, 102, 255, 0.1) 100%);
+    min-height: 300px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.project-image::before {
+    content: '📸';
+    font-size: 3rem;
+    opacity: 0.3;
+    position: absolute;
+    z-index: 0;
+    display: none;
+}
+
+.project-image.image-missing::before {
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .project-image img {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    transition: transform 0.3s ease;
+    transition: transform var(--transition-fast);
+    position: relative;
+    z-index: 1;
+}
+
+.project-image.image-missing img {
+    opacity: 0;
 }
 
 .project-card:hover .project-image img {
@@ -410,7 +538,7 @@ body {
     padding: 0.5rem 1rem;
     background: rgba(0, 217, 255, 0.9);
     color: var(--bg-dark);
-    border-radius: 50px;
+    border-radius: var(--border-radius-full);
     font-size: 0.75rem;
     font-weight: 700;
     text-transform: uppercase;
@@ -459,9 +587,9 @@ body {
 
 .tech-badge {
     padding: 0.4rem 1rem;
-    background: rgba(0, 217, 255, 0.1);
-    border: 1px solid rgba(0, 217, 255, 0.3);
-    border-radius: 20px;
+    background: rgba(0, 217, 255, var(--opacity-low));
+    border: var(--border-width) solid rgba(0, 217, 255, var(--opacity-high));
+    border-radius: var(--border-radius-md);
     font-size: 0.875rem;
     color: var(--accent-primary);
     font-weight: 600;
@@ -479,12 +607,12 @@ body {
     gap: 0.5rem;
     padding: 0.75rem 1.5rem;
     background: rgba(255, 255, 255, 0.05);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    border-radius: 50px;
+    border: var(--border-width) solid rgba(255, 255, 255, var(--opacity-low));
+    border-radius: var(--border-radius-full);
     color: var(--text-primary);
     text-decoration: none;
     font-weight: 600;
-    transition: all 0.3s ease;
+    transition: all var(--transition-fast);
 }
 
 .project-link:hover {
@@ -511,10 +639,10 @@ body {
 .skill-category {
     background: rgba(26, 26, 46, 0.4);
     backdrop-filter: blur(10px);
-    border: 1px solid rgba(0, 217, 255, 0.1);
-    border-radius: 20px;
+    border: var(--border-width) solid rgba(0, 217, 255, var(--opacity-low));
+    border-radius: var(--border-radius-md);
     padding: var(--spacing-md);
-    transition: all 0.3s ease;
+    transition: all var(--transition-fast);
 }
 
 .skill-category:hover {
@@ -542,8 +670,8 @@ body {
 .skill-list li {
     padding: 0.75rem 0;
     color: var(--text-secondary);
-    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-    transition: all 0.3s ease;
+    border-bottom: var(--border-width) solid rgba(255, 255, 255, 0.05);
+    transition: all var(--transition-fast);
 }
 
 .skill-list li:last-child {
@@ -579,10 +707,10 @@ body {
     gap: 1rem;
     background: rgba(26, 26, 46, 0.6);
     backdrop-filter: blur(10px);
-    border: 1px solid rgba(0, 217, 255, 0.2);
-    border-radius: 15px;
+    border: var(--border-width) solid rgba(0, 217, 255, var(--opacity-medium));
+    border-radius: var(--border-radius-sm);
     padding: 1.5rem;
-    transition: all 0.3s ease;
+    transition: all var(--transition-fast);
 }
 
 .cert-badge:hover {
@@ -643,26 +771,26 @@ body {
     align-items: center;
     gap: 0.75rem;
     padding: 1rem 2rem;
-    border-radius: 50px;
+    border-radius: var(--border-radius-full);
     font-weight: 600;
     text-decoration: none;
-    transition: all 0.3s ease;
+    transition: all var(--transition-fast);
 }
 
 .contact-btn.primary {
     background: var(--gradient-2);
     color: white;
-    box-shadow: 0 10px 30px rgba(0, 217, 255, 0.3);
+    box-shadow: var(--box-shadow-md);
 }
 
 .contact-btn.primary:hover {
     transform: translateY(-3px);
-    box-shadow: 0 15px 40px rgba(0, 217, 255, 0.4);
+    box-shadow: var(--box-shadow-lg);
 }
 
 .contact-btn.secondary {
     background: rgba(255, 255, 255, 0.05);
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    border: var(--border-width) solid rgba(255, 255, 255, var(--opacity-low));
     color: var(--text-primary);
 }
 
@@ -678,7 +806,7 @@ body {
 .footer {
     padding: var(--spacing-md);
     background: var(--bg-card);
-    border-top: 1px solid rgba(0, 217, 255, 0.1);
+    border-top: var(--border-width) solid rgba(0, 217, 255, var(--opacity-low));
     text-align: center;
     color: var(--text-muted);
 }
@@ -742,26 +870,36 @@ body {
         font-size: 0.875rem;
     }
     
-    .hero {
-        flex-direction: column;
-        text-align: center;
-        padding: var(--spacing-lg) var(--spacing-md);
+    .hero-wireframe {
+        padding-top: calc(80px + var(--spacing-sm));
+        padding-bottom: var(--spacing-lg);
     }
     
-    .hero-title {
+    .wireframe-container {
+        grid-template-columns: 1fr;
+        grid-template-areas:
+            "header"
+            "description"
+            "features"
+            "actions";
+    }
+    
+    .wireframe-title {
         font-size: 2rem;
     }
     
-    .hero-subtitle {
-        font-size: 1rem;
+    .wireframe-grid {
+        grid-template-columns: 1fr;
     }
     
-    .hero-visual {
-        margin-top: var(--spacing-md);
-    }
-    
-    .floating-card {
+    .wireframe-buttons {
+        flex-direction: column;
         width: 100%;
+    }
+    
+    .wireframe-btn {
+        width: 100%;
+        justify-content: center;
     }
     
     .section-title {
@@ -787,8 +925,12 @@ body {
 }
 
 @media (max-width: 480px) {
-    .hero-title {
+    .wireframe-title {
         font-size: 1.75rem;
+    }
+    
+    .wireframe-text {
+        font-size: 1rem;
     }
     
     .project-title {
