@@ -167,18 +167,29 @@
                     </div>
                     <div class="mag-content">
                         <div class="mag-meta">
-                            <span class="mag-category">Content Automation</span>
+                            <span class="mag-category">LLM Evaluation</span>
                         </div>
-                        <h3 class="mag-title">AI Blog Post Generator</h3>
+                        <h3 class="mag-title">LLM Evaluation & Metrics Framework</h3>
                         <p class="mag-excerpt">
-                            Multi-agent content system with recursive code scanning, RAG-based
-                            technical writing, and modern GUI with real-time progress tracking.
+                            A lightweight framework for empirically evaluating and tuning LLM applications using concrete, repeatable metrics rather than anecdotal feedback.<br><br>
+
+                            Designed for incremental adoption, the system instruments existing LLM and RAG workflows via decorators, enabling developers to collect metrics such as semantic similarity, BLEU/ROUGE scores, retrieval quality, and response characteristics with minimal code changes. The same core architecture supports offline batch evaluation for structured model and configuration comparisons.<br><br>
+
+                            The project emphasizes pragmatic engineering tradeoffs: synchronous execution for debuggability, lazy initialization of expensive resources, and flexible JSON-based metric storage backed by a portable database.
                         </p>
+                        <div class="mag-callout">
+                            <strong>Data-Driven Measurements:</strong> Replaces anecdotal LLM tuning with empirical metrics
+                            and traditional performance measurement discipline—enabling confident model decisions
+                            backed by repeatable data.
+                        </div>
                         <div class="mag-tech">
-                            <span>LangChain</span>
-                            <span>CustomTkinter</span>
-                            <span>RAG</span>
-                            <span>Multi-Agent</span>
+                            <span>Python</span>
+                            <span>Pydantic</span>
+                            <span>SQLAlchemy</span>
+                            <span>SQLite/Postgres</span>
+                            <span>OpenAI/Anthropic APIs</span>
+                            <span>sentence-transformers</span>
+                            <span>ChromaDB</span>
                         </div>
                         <div class="mag-actions">
                             <a href="https://github.com/yourusername/blog-generator" target="_blank" class="mag-btn mag-btn-secondary">
