@@ -33,10 +33,10 @@ Before deployment, add these screenshots to the `assets/` folder:
    - Show the chat interface with a SQL query being generated
    - Include a visualization if possible
 
-### Blog Post Generator
+### LLM Evaluation
 1. **blog-generator-gui.png** (600x400px recommended)
-   - Show the CustomTkinter interface
-   - Display the progress tracking feature
+   - Show the LLM Evaluation interface
+   - Display the metrics and evaluation results
 
 **Note:** The site will use placeholder images until you add real screenshots. Simply replace the placeholder images with your actual screenshots using the same filenames.
 
