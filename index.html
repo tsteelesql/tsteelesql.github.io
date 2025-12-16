@@ -134,18 +134,27 @@
                         </div>
                         <h3 class="mag-title">Conversational Data Analyst</h3>
                         <p class="mag-excerpt">
-                            Natural language database interface with RAG-powered schema retrieval,
-                            intelligent SQL generation, and automatic visualization.
+                            An end-to-end conversational data analysis system that translates natural-language questions into safe, validated SQL queries and visualizations. It allows non-expert users to explore relational data using everyday language while enforcing strong safety and correctness guarantees.<br><br>
+
+                            The system uses a retrieval-augmented generation (RAG) approach to ground the LLM in the actual database schema before query generation, reducing hallucinations and token usage. Queries are validated and executed through a controlled pipeline, with results automatically visualized using appropriate chart types based on data characteristics.<br><br>
+
+                            Architecturally, the application is orchestrated as a LangGraph state machine rather than a linear chain, enabling retries, error recovery, and natural follow-up questions. This project also serves as a real-world workload for evaluating LLM behavior in SQL generation and data analysis, balancing usability, safety, and cost-aware design.
                         </p>
                         <div class="mag-callout">
-                            <strong>DBA Advantage:</strong> 15+ years of database expertise
-                            informing every query optimization.
+                            <strong>Built for Conversations:</strong> Ask your data questions in plain English and get meaningful data insights and visualizations back.
                         </div>
                         <div class="mag-tech">
-                            <span>ChromaDB</span>
+                            <span>Python</span>
+                            <span>LangGraph</span>
                             <span>LangChain</span>
-                            <span>RAG</span>
+                            <span>OpenAI/Ollama</span>
+                            <span>SQLite</span>
+                            <span>SQLAlchemy</span>
+                            <span>ChromaDB</span>
+                            <span>Sentence-Transformers</span>
                             <span>Streamlit</span>
+                            <span>Plotly</span>
+                            <span>Pandas</span>
                         </div>
                         <div class="mag-actions">
                             <a href="https://github.com/yourusername/conversational-analyst" target="_blank" class="mag-btn mag-btn-secondary">
