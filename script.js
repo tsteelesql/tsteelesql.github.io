@@ -199,6 +199,13 @@ function initImageErrorHandling() {
  */
 function initImageHoverEffects() {
     document.querySelectorAll('.mag-image-wrapper img').forEach(img => {
+        // Skip featured images - they should not have hover zoom
+        const wrapper = img.closest('.mag-image-wrapper');
+        const card = wrapper?.closest('.mag-featured');
+        if (card) {
+            return; // Skip featured images
+        }
+        
         img.addEventListener('mouseenter', function() {
             const wrapper = this.closest('.mag-image-wrapper');
             if (wrapper) {
