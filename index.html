@@ -91,18 +91,13 @@
                             <span class="mag-type">Production Tool</span>
                         </div>
                         <h3 class="mag-title">Catching Hidden Risks in AI-Generated Code</h3>
-                        <p class="mag-excerpt">
-                            <strong>AI-generated code often looks correct—while hiding security risks, performance traps, and reliability issues.</strong>
-                            <br><br>
-                            AgentLint is a production-ready, multi-agent code review system designed to catch those failures early, before they reach production.
-                            <br><br>
-                            It orchestrates three specialized agents through a LangGraph workflow: a Security Agent that detects vulnerabilities like SQL injection, hardcoded secrets, insecure cryptography, and dangerous functions; a Performance Agent that flags inefficiencies such as N+1 queries, expensive algorithms, and resource leaks; and a Quality Agent that focuses on maintainability, error handling, and code complexity.
-                            <br><br>
-                            Each agent uses fast static analysis by default for sub-second scans, with optional LLM-powered explanations and deeper analysis when context matters—making the system suitable for both CI pipelines and thorough code reviews.
-                            <br><br>
-                            The result is a review pipeline that surfaces real risk early—before unsafe or inefficient code reaches production.
-                          </p>
-                        </p>
+                        <div class="mag-excerpt">
+                            <p><strong>AI-generated code often looks correct—while hiding security risks, performance traps, and reliability issues.</strong></p>
+                            <p>AgentLint is a production-ready, multi-agent code review system designed to surface those failures early, before unsafe or inefficient code reaches production.</p>
+                            <p>Instead of a single "judge" prompt, it orchestrates specialized Security, Performance, and Quality agents through a LangGraph workflow to produce consistent, actionable findings.</p>
+                            <p>Instead of a single "judge" prompt, it orchestrates specialized Security, Performance, and Quality agents through a LangGraph workflow to produce consistent, actionable findings.</p>
+                            <p>The result is a review pipeline that exposes real risk early, so teams can prioritize fixes before issues ship.</p>
+                        </div>
                         <div class="mag-highlight">
                             <div class="mag-highlight-icon">⚡</div>
                             <div class="mag-highlight-text">
@@ -139,16 +134,12 @@
                             <span class="mag-category">RAG System</span>
                         </div>
                         <h3 class="mag-title">Ask Questions of Your Data—Without Writing SQL</h3>
-                        <p class="mag-excerpt">
-                            <strong>Asking basic questions of your data shouldn&#39;t require knowing SQL—or trusting an LLM blindly.</strong>
-                            <br><br>
-                            Conversational Data Analyst is an end-to-end system that turns plain-English questions into safe, validated SQL and clear visualizations.
-                            <br><br>
-                            It uses retrieval-augmented generation (RAG) to ground every query in the live database schema—reducing hallucinations and keeping the model on the rails.
-                            <br><br>
-                            Under the hood, a LangGraph state machine handles retries, error recovery, and natural follow-up questions—balancing usability, safety, and cost-aware execution in real workflows.
-                          </p>
-                        </p>
+                        <div class="mag-excerpt">
+                            <p><strong>Asking basic questions of your data shouldn&#39;t require knowing SQL—or trusting an LLM blindly.</strong></p>
+                            <p>Conversational Data Analyst is an end-to-end system that turns plain-English questions into safe, validated SQL and clear visualizations.</p>
+                            <p>It uses retrieval-augmented generation (RAG) to ground every query in the live database schema—reducing hallucinations and keeping the model on the rails.</p>
+                            <p>Under the hood, a LangGraph state machine handles retries, error recovery, and natural follow-up questions—balancing usability, safety, and cost-aware execution in real workflows.</p>
+                        </div>
                         <div class="mag-callout">
                             <strong>Built for Conversations:</strong> Ask in plain English, get validated SQL and meaningful charts back—without needing to know the schema.
                         </div>
@@ -187,17 +178,13 @@
                             <span class="mag-category">LLM Evaluation</span>
                         </div>
                         <h3 class="mag-title">Turning &#39;Feels Better&#39; Into Measurable Improvement</h3>
-                        <p class="mag-excerpt">
-                            <strong>LLM applications are easy to tweak—and surprisingly hard to evaluate.</strong>
-                            <br><br>
-                            Small changes to prompts, models, or retrieval pipelines felt like improvements, but there was no consistent way to prove it.
-                            <br><br>
-                            I built a lightweight framework that instruments real LLM workflows to capture concrete signals—semantic similarity, retrieval quality, latency, and cost—without forcing a rewrite of existing code.
-                            <br><br>
-                            The system favors pragmatic engineering choices: synchronous execution for clear debugging, lazy initialization to avoid unnecessary overhead,
-                            and portable JSON-based storage to keep results inspectable and comparable results.
-                            <br><br>
-                            The result is a repeatable, inspectable way to tune LLM systems based on evidence instead of intuition.
+                        <div class="mag-excerpt">
+                            <p><strong>LLM applications are easy to tweak—and surprisingly hard to evaluate.</strong></p>
+                            <p>Small changes to prompts, models, or retrieval pipelines felt like improvements, but there was no consistent way to prove it.</p>
+                            <p>I built a lightweight framework that instruments real LLM workflows to capture concrete signals—semantic similarity, retrieval quality, latency, and cost—without forcing a rewrite of existing code.</p>
+                            <p>The system favors pragmatic engineering choices: synchronous execution for clear debugging, lazy initialization to avoid unnecessary overhead, and portable JSON-based storage to keep results inspectable and comparable results.</p>
+                            <p>The result is a repeatable, inspectable way to tune LLM systems based on evidence instead of intuition.</p>
+                        </div>
                     <div class="mag-callout">
                         <strong>Designed for Real Workflows:</strong> Measures LLM behavior where it actually runs—not in isolated benchmarks.
                     </div>
