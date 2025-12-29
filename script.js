@@ -220,6 +220,69 @@ function initImageHoverEffects() {
 }
 
 /**
+ * Initialize full-screen image modal functionality
+ */
+function initImageModal() {
+    const modal = document.getElementById('imageModal');
+    const modalImage = document.getElementById('modalImage');
+    const closeBtn = document.querySelector('.image-modal-close');
+    const expandButtons = document.querySelectorAll('.image-expand-btn');
+
+    if (!modal || !modalImage) return;
+
+    // Function to open modal with image
+    function openModal(imgSrc, imgAlt) {
+        modalImage.src = imgSrc;
+        modalImage.alt = imgAlt || 'Full screen image';
+        modal.classList.add('active');
+        document.body.style.overflow = 'hidden'; // Prevent background scrolling
+    }
+
+    // Function to close modal
+    function closeModal() {
+        modal.classList.remove('active');
+        document.body.style.overflow = ''; // Restore scrolling
+        // Clear image src after animation to prevent showing old image on next open
+        setTimeout(() => {
+            if (!modal.classList.contains('active')) {
+                modalImage.src = '';
+            }
+        }, 300);
+    }
+
+    // Add click handlers to expand buttons
+    expandButtons.forEach(btn => {
+        btn.addEventListener('click', function(e) {
+            e.stopPropagation(); // Prevent any parent click handlers
+            const wrapper = this.closest('.mag-image-wrapper');
+            const img = wrapper?.querySelector('img');
+            if (img && img.src) {
+                openModal(img.src, img.alt);
+            }
+        });
+    });
+
+    // Close button handler
+    if (closeBtn) {
+        closeBtn.addEventListener('click', closeModal);
+    }
+
+    // Close on background click
+    modal.addEventListener('click', function(e) {
+        if (e.target === modal) {
+            closeModal();
+        }
+    });
+
+    // Close on ESC key
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape' && modal.classList.contains('active')) {
+            closeModal();
+        }
+    });
+}
+
+/**
  * Animate statistics numbers when they come into view
  */
 function initStatsAnimation() {
@@ -334,6 +397,7 @@ function init() {
     initFadeInAnimations();
     initImageErrorHandling();
     initImageHoverEffects();
+    initImageModal();
     initStatsAnimation();
     initEmailCopy();
     initPageLoadAnimation();
