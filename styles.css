@@ -507,6 +507,11 @@ body {
     gap: 10px;       /* shrink from 12px */
 }
 
+.mag-side .mag-image-wrapper {
+    aspect-ratio: 16 / 9;   /* or 4/3 if you prefer */
+    min-height: 0;
+  }
+
 .mag-card.mag-side .mag-excerpt {
     font-size: 0.92rem;   /* small reduction */
     line-height: 1.55;    /* still comfortable */
@@ -539,21 +544,50 @@ body {
     min-height: 150px;
 }
 
+/* Featured card: give the image wrapper a real box to fill (desktop too) */
 .mag-featured .mag-image-wrapper {
-    min-height: 200px;
+    aspect-ratio: 16 / 9;
+    min-height: 0;      /* override min-height behavior */
+    align-self: stretch;
+    object-position: 50% 20%;
+    padding: 12px;
+    background: linear-gradient(
+        180deg,
+        rgba(0, 0, 0, 0.85),
+        rgba(10, 10, 15, 0.95)
+    );
 }
+
 
 .mag-image-wrapper img {
     width: 100%;
     height: 100%;
     object-fit: cover;
     transition: transform 0.6s ease, filter var(--transition-fast);
+    object-position: top center; /* try 'center' or 'top' depending on crop */
+    display: block;             /* removes baseline gap */
 }
 
-.mag-card:hover .mag-image-wrapper img {
-    transform: scale(1.08);
-    filter: brightness(1.1);
-}
+/* Featured screenshot: show the whole dashboard (no cropping) */
+.mag-featured .mag-image-wrapper {
+    aspect-ratio: 16 / 9;
+    background: rgba(10, 10, 15, 0.9); /* so letterbox looks intentional */
+  }
+  
+  .mag-featured .mag-image-wrapper img {
+    object-fit: contain;        /* KEY: stop cropping */
+    object-position: center;    /* center the screenshot */
+    transform: none;            /* optional: avoid hover zoom crop */
+    filter: none;               /* optional: keep UI sharp */
+    
+  }
+  
+  /* Optional: don't zoom featured images on hover */
+  .mag-featured:hover .mag-image-wrapper img {
+    transform: none;
+    filter: none;
+  }
+  
 
 /* Placeholder for missing images */
 .mag-image-wrapper.image-missing::before {
@@ -1086,10 +1120,6 @@ body {
         grid-template-columns: 1fr;
     }
 
-    .mag-featured .mag-image-wrapper {
-        min-height: 250px;
-    }
-
     .mag-featured .mag-title {
         font-size: 1.75rem;
     }
@@ -1165,10 +1195,7 @@ body {
 
     .mag-image-wrapper {
         min-height: 180px;
-    }
-
-    .mag-featured .mag-image-wrapper {
-        min-height: 220px;
+        
     }
 
     .mag-content {
@@ -1229,3 +1256,4 @@ body {
         justify-content: center;
     }
 }
+
