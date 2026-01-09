@@ -66,10 +66,10 @@ function updateNavbar(scrollY) {
     if (!nav) return;
     
     if (scrollY > SCROLL_THRESHOLD) {
-        nav.style.background = 'rgba(10, 10, 15, 0.95)';
-        nav.style.boxShadow = '0 5px 20px rgba(0, 217, 255, 0.1)';
+        nav.style.background = 'rgba(31, 38, 48, 0.95)';
+        nav.style.boxShadow = '0 5px 20px rgba(0, 0, 0, 0.3)';
     } else {
-        nav.style.background = 'rgba(10, 10, 15, 0.8)';
+        nav.style.background = 'rgba(31, 38, 48, 0.8)';
         nav.style.boxShadow = 'none';
     }
 }
@@ -417,9 +417,9 @@ function init() {
  * Display welcome message in console for recruiters/developers
  */
 function initConsoleMessage() {
-    console.log('%c👋 Hi there, recruiter!', 'font-size: 20px; font-weight: bold; color: #00d9ff;');
-    console.log('%cThanks for checking out my portfolio. I built this site to demonstrate both my AI engineering skills and my attention to production-ready details.', 'font-size: 14px; color: #a8b2d1;');
-    console.log('%cLet\'s connect: [Add your LinkedIn or email here]', 'font-size: 14px; color: #00d9ff;');
+    console.log('%c👋 Hi there, recruiter!', 'font-size: 20px; font-weight: bold; color: #3a7d44;');
+    console.log('%cThanks for checking out my portfolio. I built this site to demonstrate both my AI engineering skills and my attention to production-ready details.', 'font-size: 14px; color: rgba(255, 255, 255, 0.72);');
+    console.log('%cLet\'s connect: [Add your LinkedIn or email here]', 'font-size: 14px; color: #a8e6cf;');
 }
 
 // Start initialization

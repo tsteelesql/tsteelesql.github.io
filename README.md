@@ -8,7 +8,7 @@ Once deployed: `https://yourusername.github.io`
 
 ## ✨ Features
 
-- **Dark theme with vibrant cyan accents** - Professional yet eye-catching
+- **Modern Calm theme** - Professional verdant green and mint accents on deep slate
 - **Glassmorphism effects** - Modern UI design trends
 - **Fully responsive** - Mobile, tablet, and desktop optimized
 - **Smooth animations** - Intersection observers and scroll effects
@@ -86,8 +86,8 @@ When you publish LinkedIn articles about your projects, update the "Read Article
 
 ```css
 :root {
-    --accent-primary: #00d9ff;  /* Change primary accent color */
-    --accent-secondary: #0066ff; /* Change secondary accent */
+    --accent-primary: #3a7d44;   /* Verdant green - primary accent */
+    --accent-secondary: #a8e6cf;  /* Mint - secondary accent */
     /* Other colors... */
 }
 ```
