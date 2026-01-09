@@ -34,8 +34,11 @@ function throttle(func, limit) {
 
 /**
  * Initialize smooth scrolling for navigation links
+ * Respects prefers-reduced-motion
  */
 function initSmoothScrolling() {
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function (e) {
             e.preventDefault();
@@ -44,7 +47,7 @@ function initSmoothScrolling() {
             
             if (target) {
                 target.scrollIntoView({
-                    behavior: 'smooth',
+                    behavior: prefersReducedMotion ? 'auto' : 'smooth',
                     block: 'start'
                 });
             }
@@ -103,9 +106,13 @@ function updateActiveNavLink(scrollY) {
 
 /**
  * Apply parallax effect to hero section
+ * Respects prefers-reduced-motion
  * @param {number} scrollY - Current scroll position
  */
 function updateParallax(scrollY) {
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (prefersReducedMotion) return;
+    
     const hero = document.querySelector('.hero');
     if (!hero) return;
     
@@ -132,8 +139,11 @@ const handleScroll = throttle(() => {
 
 /**
  * Initialize Intersection Observer for fade-in animations
+ * Respects prefers-reduced-motion
  */
 function initFadeInAnimations() {
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    
     const observerOptions = {
         threshold: 0.1,
         rootMargin: '0px 0px -100px 0px'
@@ -143,7 +153,9 @@ function initFadeInAnimations() {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
                 entry.target.style.opacity = '1';
-                entry.target.style.transform = 'translateY(0)';
+                if (!prefersReducedMotion) {
+                    entry.target.style.transform = 'translateY(0)';
+                }
             }
         });
     }, observerOptions);
@@ -155,8 +167,12 @@ function initFadeInAnimations() {
     
     animatedElements.forEach(el => {
         el.style.opacity = '0';
-        el.style.transform = 'translateY(30px)';
-        el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+        if (!prefersReducedMotion) {
+            el.style.transform = 'translateY(30px)';
+            el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+        } else {
+            el.style.transition = 'opacity 0.01ms';
+        }
         observer.observe(el);
     });
 }
@@ -196,8 +212,12 @@ function initImageErrorHandling() {
 
 /**
  * Add hover effects to magazine card images
+ * Respects prefers-reduced-motion
  */
 function initImageHoverEffects() {
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (prefersReducedMotion) return;
+    
     document.querySelectorAll('.mag-image-wrapper img').forEach(img => {
         // Skip featured images - they should not have hover zoom
         const wrapper = img.closest('.mag-image-wrapper');
