@@ -568,11 +568,22 @@ p, .mag-excerpt, .about-text {
     font-weight: 400;
 }
 
-/* Magazine Grid Layout */
-.magazine-grid {
+/* Projects Grid Layout */
+.projects {
+    /* Container for all projects */
+}
+
+.project-featured {
+    width: 100%;
+    max-width: 1400px;
+    margin: 0 auto var(--space-5) auto;
+}
+
+/* Compact Projects Grid */
+.projects-grid-compact {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    gap: var(--space-3);
+    gap: var(--space-4);
     max-width: 1400px;
     margin: 0 auto;
 }
@@ -1737,8 +1748,248 @@ p, .mag-excerpt, .about-text {
     outline-offset: var(--focus-ring-offset);
 }
 
-/* Footer Maturity Legend */
-.footer-maturity-legend {
+/* Project Card Layout + Hierarchy */
+.project-card {
+    display: grid;
+    grid-template-columns: 1.1fr 1.2fr;
+    gap: 24px;
+    padding: 24px;
+    border-radius: 16px;
+    border: 1px solid rgba(255, 255, 255, 0.10);
+    background: rgba(0, 0, 0, 0.20);
+    transition: all var(--transition-base);
+}
+
+.project-card:hover {
+    border-color: var(--border-strong);
+    box-shadow: var(--shadow-md);
+}
+
+/* Compact card layout (vertical stack) */
+.project-compact {
+    grid-template-columns: 1fr;
+    gap: var(--space-3);
+    padding: var(--space-4);
+}
+
+.project-compact .project-media {
+    order: -1; /* Screenshot first */
+}
+
+.project-compact .project-media img {
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
+}
+
+.project-media {
+    position: relative;
+    overflow: visible; /* Changed from hidden to allow button to be visible */
+    border-radius: 12px;
+    /* Screenshot as primary visual anchor */
+    flex-shrink: 0;
+}
+
+.project-media img {
+    width: 100%;
+    height: auto;
+    border-radius: 12px;
+    display: block;
+    /* Ensure screenshot is prominent */
+    box-shadow: var(--shadow-sm);
+}
+
+/* Ensure image expand button works in project-media */
+.project-media .image-expand-btn {
+    position: absolute;
+    top: var(--space-3);
+    right: var(--space-3);
+    z-index: 10;
+}
+
+.project-content {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.project-title {
+    margin: 0;
+    line-height: 1.1;
+    font-size: 1.375rem;
+    font-weight: 800;
+    color: var(--text-primary);
+}
+
+.project-meta {
+    font-size: 0.85rem;
+    opacity: 0.75;
+    color: var(--text-secondary);
+}
+
+.project-badges {
+    display: flex;
+    justify-content: flex-end;
+    gap: 8px;
+}
+
+.project-maturity {
+    margin: 0.5rem 0;
+}
+
+/* Badge Styling (Alpha + Featured) */
+.badge {
+    display: inline-flex;
+    align-items: center;
+    padding: 6px 10px;
+    border-radius: 999px;
+    font-size: 0.78rem;
+    letter-spacing: 0.02em;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    background: rgba(255, 255, 255, 0.06);
+    color: var(--text-secondary);
+}
+
+.badge-alpha {
+    opacity: 0.9;
+}
+
+.badge-featured {
+    opacity: 0.9;
+    color: var(--accent-secondary);
+    border-color: var(--accent-secondary);
+}
+
+/* Clamp Scan Context (2-3 lines) */
+.clamp-3 {
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.project-context {
+    font-size: 0.875rem;
+    line-height: 1.6;
+    color: var(--text-secondary);
+    margin: 0;
+}
+
+/* Scan List (Max 3 bullets visible) */
+.project-scan-list {
+    margin: 0;
+    padding-left: 18px;
+    opacity: 0.92;
+    list-style: none;
+}
+
+.project-scan-list li {
+    margin: 6px 0;
+    font-size: 0.8125rem;
+    line-height: 1.5;
+    color: var(--text-secondary);
+    position: relative;
+}
+
+.project-scan-list li::before {
+    content: '•';
+    position: absolute;
+    left: -12px;
+    color: var(--accent-secondary);
+}
+
+/* Hide bullets beyond the first 3 */
+.project-scan-list li:nth-child(n+4) {
+    display: none;
+}
+
+/* Progressive Disclosure Styling */
+.project-details {
+    margin-top: 8px;
+    border-top: 1px solid rgba(255, 255, 255, 0.10);
+    padding-top: 10px;
+}
+
+/* Remove default marker */
+.project-details summary {
+    list-style: none;
+}
+
+.project-details summary::-webkit-details-marker {
+    display: none;
+}
+
+/* Make summary look like a subtle link/button */
+.project-summary {
+    cursor: pointer;
+    user-select: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 0.9rem;
+    opacity: 0.85;
+    padding: 6px 0;
+    color: var(--text-secondary);
+    transition: opacity var(--transition-base), color var(--transition-base);
+}
+
+.project-summary:hover {
+    opacity: 1;
+    color: var(--accent);
+}
+
+/* Only show correct label depending on open state */
+.project-details .summary-expanded { display: none; }
+.project-details[open] .summary-collapsed { display: none; }
+.project-details[open] .summary-expanded { display: inline; }
+
+/* Deep dive styling: clearly subordinate */
+.project-deep {
+    margin-top: 12px;
+    display: grid;
+    gap: 16px;
+    opacity: 0.95;
+}
+
+.project-section h4 {
+    margin: 0 0 8px 0;
+    font-size: 0.95rem;
+    opacity: 0.9;
+    color: var(--accent-secondary);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-family: 'Courier New', monospace;
+}
+
+.project-section ul {
+    margin: 0;
+    padding-left: 18px;
+    list-style: none;
+}
+
+.project-section ul li {
+    margin: 6px 0;
+    font-size: 0.8125rem;
+    line-height: 1.5;
+    color: var(--text-secondary);
+    position: relative;
+}
+
+.project-section ul li::before {
+    content: '•';
+    position: absolute;
+    left: -12px;
+    color: var(--accent-secondary);
+}
+
+.evidence-limits li {
+    margin: 6px 0;
+}
+
+/* Maturity Legend */
+.maturity-legend {
     margin-top: var(--space-5);
     padding-top: var(--space-5);
     border-top: 1px solid var(--border);
@@ -1748,7 +1999,7 @@ p, .mag-excerpt, .about-text {
     margin-right: auto;
 }
 
-.legend-title {
+.maturity-legend h3 {
     font-size: 1rem;
     font-weight: 700;
     color: var(--text-primary);
@@ -1758,33 +2009,35 @@ p, .mag-excerpt, .about-text {
     font-family: 'Courier New', monospace;
 }
 
-.legend-content {
+.maturity-legend p {
     font-size: 0.875rem;
     color: var(--text-muted);
     line-height: 1.6;
+    margin: 0;
 }
 
-.legend-content p {
-    margin-bottom: var(--space-2);
+/* Subtle Maturity Legend (at bottom of projects section) */
+.maturity-legend-subtle {
+    margin-top: var(--space-6);
+    padding-top: var(--space-4);
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+    text-align: center;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
-.legend-content ul {
-    list-style: none;
-    padding-left: 0;
-    margin: var(--space-2) 0;
+.maturity-legend-subtle p {
+    font-size: 0.8125rem;
+    color: var(--text-muted);
+    line-height: 1.5;
+    margin: 0;
+    opacity: 0.75;
 }
 
-.legend-content ul li {
-    margin: var(--space-1) 0;
-    padding-left: var(--space-3);
-    position: relative;
-}
-
-.legend-content ul li::before {
-    content: '•';
-    position: absolute;
-    left: 0;
-    color: var(--accent-secondary);
+.maturity-legend-subtle strong {
+    color: var(--text-secondary);
+    font-weight: 600;
 }
 
 /* ===================================
@@ -1830,23 +2083,18 @@ p, .mag-excerpt, .about-text {
         flex-direction: row;
     }
 
-    /* Magazine Layout Responsive */
-    .magazine-grid {
+    /* Projects Grid Responsive */
+    .projects-grid-compact {
         grid-template-columns: 1fr;
-        gap: var(--space-5);
+        gap: var(--space-4);
     }
 
-    .mag-featured {
+    .project-featured {
         grid-template-columns: 1fr;
     }
 
-    .mag-featured .mag-title {
-        font-size: 1.75rem;
-    }
-    
-    /* Ensure cards have consistent height on mobile */
-    .mag-card {
-        min-height: auto;
+    .project-compact {
+        grid-template-columns: 1fr;
     }
 }
 
@@ -2044,22 +2292,18 @@ p, .mag-excerpt, .about-text {
         height: 18px;
     }
     
-    /* Improve mobile card spacing */
-    .mag-side {
+    /* Project Card Mobile */
+    .project-card {
+        grid-template-columns: 1fr;
         padding: var(--space-3);
     }
-    
-    .mag-featured {
-        padding: var(--space-4);
+
+    .project-featured {
+        grid-template-columns: 1fr;
     }
-    
-    /* Mobile: Ensure toggle button is accessible */
-    .project-toggle-btn {
-        min-height: 44px; /* Accessibility touch target */
-    }
-    
-    .project-expanded-view[data-expanded="true"] {
-        max-height: 8000px; /* Larger for mobile with more content */
+
+    .projects-grid-compact {
+        grid-template-columns: 1fr;
     }
 }
 

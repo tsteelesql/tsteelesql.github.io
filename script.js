@@ -403,27 +403,18 @@ function initPageLoadAnimation() {
 // ===================================
 
 /**
- * Initialize project toggle functionality for progressive disclosure
+ * Initialize accordion behavior for project details
+ * Only one project can be expanded at a time
  */
-function initProjectToggles() {
-    const toggleButtons = document.querySelectorAll('.project-toggle-btn');
-    
-    toggleButtons.forEach(button => {
-        button.addEventListener('click', function() {
-            const expandedView = this.closest('.mag-content').querySelector('.project-expanded-view');
-            const isExpanded = expandedView.getAttribute('data-expanded') === 'true';
-            const toggleText = this.querySelector('.toggle-text');
-            
-            // Toggle expanded state
-            if (isExpanded) {
-                expandedView.setAttribute('data-expanded', 'false');
-                this.setAttribute('aria-expanded', 'false');
-                toggleText.textContent = 'Show Details';
-            } else {
-                expandedView.setAttribute('data-expanded', 'true');
-                this.setAttribute('aria-expanded', 'true');
-                toggleText.textContent = 'Hide Details';
-            }
+function initProjectAccordion() {
+    const groups = document.querySelectorAll('details[data-accordion="projects"]');
+
+    groups.forEach((d) => {
+        d.addEventListener("toggle", () => {
+            if (!d.open) return;
+            groups.forEach((other) => {
+                if (other !== d) other.open = false;
+            });
         });
     });
 }
@@ -447,7 +438,7 @@ function init() {
     initStatsAnimation();
     initEmailCopy();
     initPageLoadAnimation();
-    initProjectToggles();
+    initProjectAccordion();
     
     // Attach scroll handler
     window.addEventListener('scroll', handleScroll, { passive: true });
