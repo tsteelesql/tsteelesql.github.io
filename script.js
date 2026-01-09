@@ -403,6 +403,32 @@ function initPageLoadAnimation() {
 // ===================================
 
 /**
+ * Initialize project toggle functionality for progressive disclosure
+ */
+function initProjectToggles() {
+    const toggleButtons = document.querySelectorAll('.project-toggle-btn');
+    
+    toggleButtons.forEach(button => {
+        button.addEventListener('click', function() {
+            const expandedView = this.closest('.mag-content').querySelector('.project-expanded-view');
+            const isExpanded = expandedView.getAttribute('data-expanded') === 'true';
+            const toggleText = this.querySelector('.toggle-text');
+            
+            // Toggle expanded state
+            if (isExpanded) {
+                expandedView.setAttribute('data-expanded', 'false');
+                this.setAttribute('aria-expanded', 'false');
+                toggleText.textContent = 'Show Details';
+            } else {
+                expandedView.setAttribute('data-expanded', 'true');
+                this.setAttribute('aria-expanded', 'true');
+                toggleText.textContent = 'Hide Details';
+            }
+        });
+    });
+}
+
+/**
  * Initialize all functionality when DOM is ready
  */
 function init() {
@@ -421,6 +447,7 @@ function init() {
     initStatsAnimation();
     initEmailCopy();
     initPageLoadAnimation();
+    initProjectToggles();
     
     // Attach scroll handler
     window.addEventListener('scroll', handleScroll, { passive: true });

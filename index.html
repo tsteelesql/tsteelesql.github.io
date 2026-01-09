@@ -16,10 +16,8 @@
         <div class="nav-container">
             <div class="nav-logo">T.Steele</div>
             <ul class="nav-menu">
-                <li><a href="#about">About</a></li>
-                <li><a href="#projects" class="nav-active">Case Studies</a></li>
-                <li><a href="#approach">Approach</a></li>
-                <li><a href="#projects">Projects</a></li>
+                <li><a href="#projects" class="nav-active">Projects</a></li>
+                <li><a href="#skills">Capabilities</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
         </div>
@@ -34,6 +32,9 @@
                 </h1>
                 <p class="hero-subtitle">
                     AI Solutions Engineer making retrieval systems transparent and cost-effective.
+                </p>
+                <p class="hero-disclosure">
+                    All showcased systems are Alpha-stage personal projects evaluated using production-inspired workloads.
                 </p>
                 <div class="hero-cta">
                     <a href="#projects" class="btn btn-primary">View Case Studies</a>
@@ -77,12 +78,71 @@
                             <span class="mag-type">Production Tool</span>
                         </div>
                         <h3 class="mag-title">Catching Hidden Risks in AI-Generated Code</h3>
-                        <div class="mag-excerpt">
-                            <p><strong>AI-generated code often looks correct—while hiding security risks, performance traps, and reliability issues.</strong></p>
-                            <p>AgentLint is a production-ready, multi-agent code review system designed to surface those failures early, before unsafe or inefficient code reaches production.</p>
-                            <p>Instead of a single "judge" prompt, it orchestrates specialized Security, Performance, and Quality agents through a LangGraph workflow to produce consistent, actionable findings.</p>
-                            <p>The result is a review pipeline that exposes real risk early, so teams can prioritize fixes before issues ship.</p>
+                        <div class="maturity-badge">Alpha · Personal Project</div>
+                        
+                        <!-- Scan View (Default Visible) -->
+                        <div class="project-scan-view">
+                            <div class="project-context-scan">
+                                <p><strong>AI-generated code often looks correct—while hiding security risks, performance traps, and reliability issues.</strong> AgentLint is a production-ready, multi-agent code review system designed to surface those failures early, before unsafe or inefficient code reaches production.</p>
+                            </div>
+                            <div class="project-scope-scan">
+                                <h4 class="project-section-title">System Scope</h4>
+                                <ul class="scope-bullets">
+                                    <li>Multi-agent code review system</li>
+                                    <li>Security, Performance, and Quality agents</li>
+                                    <li>LangGraph workflow orchestration</li>
+                                </ul>
+                            </div>
+                            <div class="project-signals-scan">
+                                <h4 class="project-section-title">Signals & Instrumentation</h4>
+                                <ul class="signals-bullets">
+                                    <li>Review findings by agent type</li>
+                                    <li>Severity level categorization</li>
+                                    <li>Actionable recommendations</li>
+                                </ul>
+                            </div>
                         </div>
+                        
+                        <!-- Expanded View (Collapsed by Default) -->
+                        <div class="project-expanded-view" data-expanded="false">
+                            <div class="project-section">
+                                <h4 class="project-section-title">Context</h4>
+                                <div class="mag-excerpt">
+                                    <p><strong>AI-generated code often looks correct—while hiding security risks, performance traps, and reliability issues.</strong></p>
+                                    <p>AgentLint is a production-ready, multi-agent code review system designed to surface those failures early, before unsafe or inefficient code reaches production.</p>
+                                    <p>Instead of a single "judge" prompt, it orchestrates specialized Security, Performance, and Quality agents through a LangGraph workflow to produce consistent, actionable findings.</p>
+                                    <p>The result is a review pipeline that exposes real risk early, so teams can prioritize fixes before issues ship.</p>
+                                </div>
+                            </div>
+                            <div class="project-section">
+                                <h4 class="project-section-title">System Scope</h4>
+                                <div class="mag-excerpt">
+                                    <p>Multi-agent code review system with Security, Performance, and Quality agents orchestrated through LangGraph workflow.</p>
+                                </div>
+                            </div>
+                            <div class="project-section">
+                                <h4 class="project-section-title">Signals & Instrumentation</h4>
+                                <div class="mag-excerpt">
+                                    <p>Review findings categorized by agent type, severity levels, and actionable recommendations.</p>
+                                </div>
+                            </div>
+                            <div class="project-section">
+                                <h4 class="project-section-title">Evidence & Limits</h4>
+                                <ul class="evidence-list">
+                                    <li><strong>Workloads:</strong></li>
+                                    <li><strong>Metrics:</strong></li>
+                                    <li><strong>Known gaps:</strong></li>
+                                    <li><strong>Next validation step:</strong></li>
+                                </ul>
+                            </div>
+                        </div>
+                        
+                        <button class="project-toggle-btn" aria-expanded="false" aria-label="Toggle project details">
+                            <span class="toggle-text">Show Details</span>
+                            <svg class="toggle-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                                <polyline points="6 9 12 15 18 9"></polyline>
+                            </svg>
+                        </button>
                         <div class="mag-highlight">
                             <div class="mag-highlight-icon">⚡</div>
                             <div class="mag-highlight-text">
@@ -125,12 +185,71 @@
                             <span class="mag-category">RAG System</span>
                         </div>
                         <h3 class="mag-title">Ask Questions of Your Data—Without Writing SQL</h3>
-                        <div class="mag-excerpt">
-                            <p><strong>Asking basic questions of your data shouldn&#39;t require knowing SQL—or trusting an LLM blindly.</strong></p>
-                            <p>Conversational Data Analyst is an end-to-end system that turns plain-English questions into safe, validated SQL and clear visualizations.</p>
-                            <p>It uses retrieval-augmented generation (RAG) to ground every query in the live database schema—reducing hallucinations and keeping the model on the rails.</p>
-                            <p>Under the hood, a LangGraph state machine handles retries, error recovery, and natural follow-up questions—balancing usability, safety, and cost-aware execution in real workflows.</p>
+                        <div class="maturity-badge">Alpha · Personal Project</div>
+                        
+                        <!-- Scan View (Default Visible) -->
+                        <div class="project-scan-view">
+                            <div class="project-context-scan">
+                                <p><strong>Asking basic questions of your data shouldn&#39;t require knowing SQL—or trusting an LLM blindly.</strong> Conversational Data Analyst is an end-to-end system that turns plain-English questions into safe, validated SQL and clear visualizations.</p>
+                            </div>
+                            <div class="project-scope-scan">
+                                <h4 class="project-section-title">System Scope</h4>
+                                <ul class="scope-bullets">
+                                    <li>End-to-end RAG system</li>
+                                    <li>Plain-English to SQL conversion</li>
+                                    <li>Schema-grounded query generation</li>
+                                </ul>
+                            </div>
+                            <div class="project-signals-scan">
+                                <h4 class="project-section-title">Signals & Instrumentation</h4>
+                                <ul class="signals-bullets">
+                                    <li>Query validation</li>
+                                    <li>Retrieval quality metrics</li>
+                                    <li>Cost tracking</li>
+                                </ul>
+                            </div>
                         </div>
+                        
+                        <!-- Expanded View (Collapsed by Default) -->
+                        <div class="project-expanded-view" data-expanded="false">
+                            <div class="project-section">
+                                <h4 class="project-section-title">Context</h4>
+                                <div class="mag-excerpt">
+                                    <p><strong>Asking basic questions of your data shouldn&#39;t require knowing SQL—or trusting an LLM blindly.</strong></p>
+                                    <p>Conversational Data Analyst is an end-to-end system that turns plain-English questions into safe, validated SQL and clear visualizations.</p>
+                                    <p>It uses retrieval-augmented generation (RAG) to ground every query in the live database schema—reducing hallucinations and keeping the model on the rails.</p>
+                                    <p>Under the hood, a LangGraph state machine handles retries, error recovery, and natural follow-up questions—balancing usability, safety, and cost-aware execution in real workflows.</p>
+                                </div>
+                            </div>
+                            <div class="project-section">
+                                <h4 class="project-section-title">System Scope</h4>
+                                <div class="mag-excerpt">
+                                    <p>End-to-end RAG system that converts plain-English questions into validated SQL queries with visualizations.</p>
+                                </div>
+                            </div>
+                            <div class="project-section">
+                                <h4 class="project-section-title">Signals & Instrumentation</h4>
+                                <div class="mag-excerpt">
+                                    <p>Query validation, schema grounding, retrieval quality metrics, and cost tracking.</p>
+                                </div>
+                            </div>
+                            <div class="project-section">
+                                <h4 class="project-section-title">Evidence & Limits</h4>
+                                <ul class="evidence-list">
+                                    <li><strong>Workloads:</strong></li>
+                                    <li><strong>Metrics:</strong></li>
+                                    <li><strong>Known gaps:</strong></li>
+                                    <li><strong>Next validation step:</strong></li>
+                                </ul>
+                            </div>
+                        </div>
+                        
+                        <button class="project-toggle-btn" aria-expanded="false" aria-label="Toggle project details">
+                            <span class="toggle-text">Show Details</span>
+                            <svg class="toggle-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                                <polyline points="6 9 12 15 18 9"></polyline>
+                            </svg>
+                        </button>
                         <div class="mag-callout">
                             <strong>Built for Conversations:</strong> Ask in plain English, get validated SQL and meaningful charts back—without needing to know the schema.
                         </div>
@@ -175,13 +294,72 @@
                             <span class="mag-category">LLM Evaluation</span>
                         </div>
                         <h3 class="mag-title">Turning &#39;Feels Better&#39; Into Measurable Improvement</h3>
-                        <div class="mag-excerpt">
-                            <p><strong>LLM applications are easy to tweak—and surprisingly hard to evaluate.</strong></p>
-                            <p>Small changes to prompts, models, or retrieval pipelines felt like improvements, but there was no consistent way to prove it.</p>
-                            <p>I built a lightweight framework that instruments real LLM workflows to capture concrete signals—semantic similarity, retrieval quality, latency, and cost—without forcing a rewrite of existing code.</p>
-                            <p>The system favors pragmatic engineering choices: synchronous execution for clear debugging, lazy initialization to avoid unnecessary overhead, and portable JSON-based storage to keep results inspectable and comparable results.</p>
-                            <p>The result is a repeatable, inspectable way to tune LLM systems based on evidence instead of intuition.</p>
+                        <div class="maturity-badge">Alpha · Personal Project</div>
+                        
+                        <!-- Scan View (Default Visible) -->
+                        <div class="project-scan-view">
+                            <div class="project-context-scan">
+                                <p><strong>LLM applications are easy to tweak—and surprisingly hard to evaluate.</strong> I built a lightweight framework that instruments real LLM workflows to capture concrete signals—semantic similarity, retrieval quality, latency, and cost—without forcing a rewrite of existing code.</p>
+                            </div>
+                            <div class="project-scope-scan">
+                                <h4 class="project-section-title">System Scope</h4>
+                                <ul class="scope-bullets">
+                                    <li>Lightweight evaluation framework</li>
+                                    <li>LLM workflow instrumentation</li>
+                                    <li>Portable JSON-based storage</li>
+                                </ul>
+                            </div>
+                            <div class="project-signals-scan">
+                                <h4 class="project-section-title">Signals & Instrumentation</h4>
+                                <ul class="signals-bullets">
+                                    <li>Semantic similarity scores</li>
+                                    <li>Retrieval quality metrics</li>
+                                    <li>Latency and cost tracking</li>
+                                </ul>
+                            </div>
                         </div>
+                        
+                        <!-- Expanded View (Collapsed by Default) -->
+                        <div class="project-expanded-view" data-expanded="false">
+                            <div class="project-section">
+                                <h4 class="project-section-title">Context</h4>
+                                <div class="mag-excerpt">
+                                    <p><strong>LLM applications are easy to tweak—and surprisingly hard to evaluate.</strong></p>
+                                    <p>Small changes to prompts, models, or retrieval pipelines felt like improvements, but there was no consistent way to prove it.</p>
+                                    <p>I built a lightweight framework that instruments real LLM workflows to capture concrete signals—semantic similarity, retrieval quality, latency, and cost—without forcing a rewrite of existing code.</p>
+                                    <p>The system favors pragmatic engineering choices: synchronous execution for clear debugging, lazy initialization to avoid unnecessary overhead, and portable JSON-based storage to keep results inspectable and comparable results.</p>
+                                    <p>The result is a repeatable, inspectable way to tune LLM systems based on evidence instead of intuition.</p>
+                                </div>
+                            </div>
+                            <div class="project-section">
+                                <h4 class="project-section-title">System Scope</h4>
+                                <div class="mag-excerpt">
+                                    <p>Lightweight evaluation framework for instrumenting LLM workflows to capture semantic similarity, retrieval quality, latency, and cost signals.</p>
+                                </div>
+                            </div>
+                            <div class="project-section">
+                                <h4 class="project-section-title">Signals & Instrumentation</h4>
+                                <div class="mag-excerpt">
+                                    <p>Semantic similarity scores, retrieval quality metrics, latency measurements, and cost tracking with portable JSON-based storage.</p>
+                                </div>
+                            </div>
+                            <div class="project-section">
+                                <h4 class="project-section-title">Evidence & Limits</h4>
+                                <ul class="evidence-list">
+                                    <li><strong>Workloads:</strong></li>
+                                    <li><strong>Metrics:</strong></li>
+                                    <li><strong>Known gaps:</strong></li>
+                                    <li><strong>Next validation step:</strong></li>
+                                </ul>
+                            </div>
+                        </div>
+                        
+                        <button class="project-toggle-btn" aria-expanded="false" aria-label="Toggle project details">
+                            <span class="toggle-text">Show Details</span>
+                            <svg class="toggle-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                                <polyline points="6 9 12 15 18 9"></polyline>
+                            </svg>
+                        </button>
                     <div class="mag-callout">
                         <strong>Designed for Real Workflows:</strong> Measures LLM behavior where it actually runs—not in isolated benchmarks.
                     </div>
@@ -217,14 +395,16 @@
                 <div class="section-line"></div>
             </div>
 
-            <!-- Stack Proof Grid -->
-            <div class="stack-proof-grid">
-                <!-- AI/ML Stack -->
-                <div class="stack-category">
-                    <div class="stack-header">
-                        <span class="stack-icon">🤖</span>
-                        <h3 class="stack-title">AI/ML Engineering</h3>
-                    </div>
+            <!-- Primary Capabilities: AI Platform & Retrieval Systems -->
+            <div class="capabilities-tier">
+                <h3 class="tier-title">AI Platform & Retrieval Systems</h3>
+                <div class="stack-proof-grid">
+                    <!-- AI/ML Stack -->
+                    <div class="stack-category">
+                        <div class="stack-header">
+                            <span class="stack-icon">🤖</span>
+                            <h3 class="stack-title">AI/ML Engineering</h3>
+                        </div>
 
                     <div class="proof-item">
                         <div class="proof-tech">LangGraph Multi-Agent Orchestration</div>
@@ -267,13 +447,19 @@
                         </div>
                     </div>
                 </div>
+                </div>
+            </div>
 
-                <!-- Data Infrastructure Stack -->
-                <div class="stack-category">
-                    <div class="stack-header">
-                        <span class="stack-icon">🗄️</span>
-                        <h3 class="stack-title">Data Infrastructure</h3>
-                    </div>
+            <!-- Supporting Engineering Capabilities -->
+            <div class="capabilities-tier">
+                <h3 class="tier-title">Supporting Engineering Capabilities</h3>
+                <div class="stack-proof-grid">
+                    <!-- Data Infrastructure Stack -->
+                    <div class="stack-category">
+                        <div class="stack-header">
+                            <span class="stack-icon">🗄️</span>
+                            <h3 class="stack-title">Data Infrastructure</h3>
+                        </div>
 
                     <div class="proof-item">
                         <div class="proof-tech">Database Architecture & Design</div>
@@ -362,12 +548,12 @@
                     </div>
                 </div>
 
-                <!-- Cloud & DevOps Stack -->
-                <div class="stack-category">
-                    <div class="stack-header">
-                        <span class="stack-icon">☁️</span>
-                        <h3 class="stack-title">Cloud & DevOps</h3>
-                    </div>
+                    <!-- Cloud & DevOps Stack -->
+                    <div class="stack-category">
+                        <div class="stack-header">
+                            <span class="stack-icon">☁️</span>
+                            <h3 class="stack-title">Cloud & DevOps</h3>
+                        </div>
 
                     <div class="proof-item">
                         <div class="proof-tech">AWS Solutions Architecture</div>
@@ -395,6 +581,7 @@
                             <span class="proof-detail">Professional development workflow</span>
                         </div>
                     </div>
+                </div>
                 </div>
             </div>
 
@@ -503,6 +690,17 @@
                 <a href="https://linkedin.com/in/yourprofile" target="_blank">LinkedIn</a>
                 <a href="https://github.com/tsteelesql" target="_blank">GitHub</a>
                 <a href="mailto:your.email@example.com">Email</a>
+            </div>
+        </div>
+        <div class="footer-maturity-legend">
+            <h4 class="legend-title">Maturity Legend</h4>
+            <div class="legend-content">
+                <p><strong>Alpha = personal project</strong></p>
+                <ul>
+                    <li>End-to-end system</li>
+                    <li>Evaluated using production-inspired workloads</li>
+                    <li>Not deployed in employer production environments</li>
+                </ul>
             </div>
         </div>
     </footer>

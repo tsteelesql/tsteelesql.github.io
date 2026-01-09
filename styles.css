@@ -274,6 +274,15 @@ p, .mag-excerpt, .about-text {
     margin: 0;
 }
 
+.hero-disclosure {
+    font-size: 0.875rem;
+    line-height: 1.5;
+    color: var(--text-muted);
+    margin: var(--space-2) 0 0 0;
+    font-style: italic;
+    opacity: 0.85;
+}
+
 .hero-cta {
     position: relative;
     overflow: visible;
@@ -580,7 +589,7 @@ p, .mag-excerpt, .about-text {
     background: var(--surface-2);
     border: 1px solid var(--border);
     border-radius: var(--radius);
-    overflow: hidden;
+    overflow: visible; /* Changed from hidden to allow expanded content */
     transition: all var(--transition-base);
     position: relative;
     display: flex;
@@ -588,6 +597,7 @@ p, .mag-excerpt, .about-text {
     gap: var(--space-3);
     padding: var(--space-4);
     box-shadow: var(--shadow-sm);
+    align-items: stretch; /* Ensure content doesn't affect layout */
 }
 
 .mag-card:hover {
@@ -648,13 +658,15 @@ p, .mag-excerpt, .about-text {
     font-family: 'Courier New', monospace;
 }
 
-/* Image Wrapper */
+/* Image Wrapper - Visual Hierarchy: Screenshots are primary */
 .mag-image-wrapper {
     position: relative;
     overflow: hidden;
     background: linear-gradient(135deg, rgba(58, 125, 68, 0.08) 0%, rgba(168, 230, 207, 0.06) 100%);
     min-height: 150px;
     border: 1px solid rgba(168, 230, 207, 0.10);
+    order: -1; /* Ensure images appear first visually */
+    flex-shrink: 0; /* Prevent image from shrinking */
 }
 
 .mag-image-wrapper img {
@@ -918,6 +930,8 @@ p, .mag-excerpt, .about-text {
     flex-direction: column;
     gap: 0.5rem;
     flex: 1;
+    position: relative; /* For proper stacking of expanded content */
+    min-height: 0; /* Allow flex shrinking */
 }
 
 .mag-featured .mag-content {
@@ -954,6 +968,164 @@ p, .mag-excerpt, .about-text {
     line-height: 1.2;
     color: var(--text-primary);
     margin: 0;
+}
+
+/* Maturity Badge */
+.maturity-badge {
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin: 0.5rem 0 1rem 0;
+    font-family: 'Courier New', monospace;
+    opacity: 0.8;
+}
+
+/* Project Scan View (Default Visible) */
+.project-scan-view {
+    display: block;
+}
+
+.project-context-scan {
+    margin-bottom: var(--space-3);
+}
+
+.project-context-scan p {
+    font-size: 0.875rem;
+    line-height: 1.5;
+    color: var(--text-secondary);
+    margin: 0;
+}
+
+.project-scope-scan,
+.project-signals-scan {
+    margin-bottom: var(--space-2);
+}
+
+.scope-bullets,
+.signals-bullets {
+    list-style: none;
+    padding: 0;
+    margin: var(--space-2) 0 0 0;
+}
+
+.scope-bullets li,
+.signals-bullets li {
+    font-size: 0.8125rem;
+    line-height: 1.6;
+    color: var(--text-secondary);
+    margin: var(--space-1) 0;
+    padding-left: var(--space-4);
+    position: relative;
+}
+
+.scope-bullets li::before,
+.signals-bullets li::before {
+    content: '•';
+    position: absolute;
+    left: var(--space-2);
+    color: var(--accent-secondary);
+    font-weight: 700;
+}
+
+/* Project Expanded View (Collapsed by Default) */
+.project-expanded-view {
+    max-height: 0;
+    overflow: hidden;
+    opacity: 0;
+    transition: max-height 0.5s cubic-bezier(0.4, 0, 0.2, 1), 
+                opacity 0.4s ease, 
+                margin 0.4s ease;
+    margin: 0;
+    will-change: max-height, opacity; /* Optimize for animation */
+}
+
+.project-expanded-view[data-expanded="true"] {
+    max-height: 5000px; /* Large enough for content */
+    opacity: 1;
+    margin-top: var(--space-4);
+    margin-bottom: var(--space-2);
+}
+
+/* Project Toggle Button */
+.project-toggle-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-2);
+    width: 100%;
+    padding: var(--space-2) var(--space-3);
+    margin-top: var(--space-3);
+    background: transparent;
+    border: 1px solid var(--border);
+    border-radius: var(--radius-sm);
+    color: var(--text-secondary);
+    font-size: 0.8125rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all var(--transition-base);
+    font-family: 'Courier New', monospace;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.project-toggle-btn:hover {
+    border-color: var(--accent);
+    color: var(--accent);
+    background: rgba(58, 125, 68, 0.05);
+}
+
+.project-toggle-btn:focus-visible {
+    outline: none;
+    box-shadow: var(--focus-ring);
+    outline-offset: var(--focus-ring-offset);
+}
+
+.project-toggle-btn[aria-expanded="true"] .toggle-icon {
+    transform: rotate(180deg);
+}
+
+.toggle-icon {
+    transition: transform var(--transition-base);
+    stroke: currentColor;
+}
+
+.toggle-text {
+    transition: color var(--transition-base);
+}
+
+/* Project Sections */
+.project-section {
+    margin: var(--space-4) 0;
+}
+
+.project-section-title {
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--accent-secondary);
+    margin: 0 0 var(--space-2) 0;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-family: 'Courier New', monospace;
+}
+
+.evidence-list {
+    list-style: none;
+    padding: 0;
+    margin: var(--space-2) 0;
+}
+
+.evidence-list li {
+    margin: var(--space-2) 0;
+    color: var(--text-secondary);
+    font-size: 0.875rem;
+    line-height: 1.5;
+}
+
+.evidence-list li strong {
+    color: var(--text-primary);
+    font-weight: 600;
 }
 
 /* Ensure card text is readable on light backgrounds */
@@ -1178,6 +1350,20 @@ p, .mag-excerpt, .about-text {
     background: var(--bg);
     border-top: 1px solid var(--border);
     scroll-margin-top: 80px; /* For anchor links with sticky header */
+}
+
+/* Capabilities Tiers */
+.capabilities-tier {
+    margin-bottom: var(--space-6);
+}
+
+.tier-title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: var(--space-4);
+    padding-bottom: var(--space-2);
+    border-bottom: 2px solid var(--border);
 }
 
 /* Stack Proof Grid */
@@ -1551,6 +1737,56 @@ p, .mag-excerpt, .about-text {
     outline-offset: var(--focus-ring-offset);
 }
 
+/* Footer Maturity Legend */
+.footer-maturity-legend {
+    margin-top: var(--space-5);
+    padding-top: var(--space-5);
+    border-top: 1px solid var(--border);
+    width: 100%;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.legend-title {
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: var(--space-3);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-family: 'Courier New', monospace;
+}
+
+.legend-content {
+    font-size: 0.875rem;
+    color: var(--text-muted);
+    line-height: 1.6;
+}
+
+.legend-content p {
+    margin-bottom: var(--space-2);
+}
+
+.legend-content ul {
+    list-style: none;
+    padding-left: 0;
+    margin: var(--space-2) 0;
+}
+
+.legend-content ul li {
+    margin: var(--space-1) 0;
+    padding-left: var(--space-3);
+    position: relative;
+}
+
+.legend-content ul li::before {
+    content: '•';
+    position: absolute;
+    left: 0;
+    color: var(--accent-secondary);
+}
+
 /* ===================================
    Animations
    =================================== */
@@ -1660,6 +1896,10 @@ p, .mag-excerpt, .about-text {
 
     .hero-subtitle {
         font-size: 1.125rem;
+    }
+
+    .hero-disclosure {
+        font-size: 0.8125rem;
     }
 
     .hero-description {
@@ -1811,6 +2051,15 @@ p, .mag-excerpt, .about-text {
     
     .mag-featured {
         padding: var(--space-4);
+    }
+    
+    /* Mobile: Ensure toggle button is accessible */
+    .project-toggle-btn {
+        min-height: 44px; /* Accessibility touch target */
+    }
+    
+    .project-expanded-view[data-expanded="true"] {
+        max-height: 8000px; /* Larger for mobile with more content */
     }
 }
 
