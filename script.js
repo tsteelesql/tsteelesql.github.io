@@ -405,15 +405,32 @@ function initPageLoadAnimation() {
 /**
  * Initialize accordion behavior for project details
  * Only one project can be expanded at a time
+ * Updates ARIA attributes for accessibility
  */
 function initProjectAccordion() {
     const groups = document.querySelectorAll('details[data-accordion="projects"]');
 
     groups.forEach((d) => {
+        const summary = d.querySelector('summary');
+        if (summary) {
+            // Set initial ARIA state
+            summary.setAttribute('aria-expanded', d.open ? 'true' : 'false');
+        }
+        
         d.addEventListener("toggle", () => {
+            if (summary) {
+                summary.setAttribute('aria-expanded', d.open ? 'true' : 'false');
+            }
+            
             if (!d.open) return;
             groups.forEach((other) => {
-                if (other !== d) other.open = false;
+                if (other !== d) {
+                    other.open = false;
+                    const otherSummary = other.querySelector('summary');
+                    if (otherSummary) {
+                        otherSummary.setAttribute('aria-expanded', 'false');
+                    }
+                }
             });
         });
     });
