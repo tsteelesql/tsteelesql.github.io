@@ -594,6 +594,7 @@ p, .mag-excerpt, .about-text {
     gap: var(--space-4);
     max-width: 1400px;
     margin: 0 auto;
+    align-items: start; /* Prevent vertical centering when one card expands */
 }
 
 @media (max-width: 1024px) {
@@ -1766,6 +1767,7 @@ p, .mag-excerpt, .about-text {
     border: 1px solid rgba(255, 255, 255, 0.10);
     background: rgba(0, 0, 0, 0.20);
     transition: all var(--transition-base);
+    align-self: start; /* Prevent height coupling with sibling cards */
 }
 
 .project-card:hover {
