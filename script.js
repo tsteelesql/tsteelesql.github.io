@@ -274,7 +274,8 @@ function initImageModal() {
     expandButtons.forEach(btn => {
         btn.addEventListener('click', function(e) {
             e.stopPropagation(); // Prevent any parent click handlers
-            const wrapper = this.closest('.mag-image-wrapper');
+            // Look for image in .project-media (current structure) or .mag-image-wrapper (legacy)
+            const wrapper = this.closest('.project-media') || this.closest('.mag-image-wrapper');
             const img = wrapper?.querySelector('img');
             if (img && img.src) {
                 openModal(img.src, img.alt);

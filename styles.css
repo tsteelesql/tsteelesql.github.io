@@ -274,6 +274,14 @@ p, .mag-excerpt, .about-text {
     margin: 0;
 }
 
+.hero-experience {
+    margin-top: 0.5rem;
+    font-size: 0.9rem;
+    line-height: 1.5;
+    color: rgba(255, 255, 255, 0.7);
+    margin-bottom: 0;
+}
+
 .hero-disclosure {
     font-size: 0.875rem;
     line-height: 1.5;
@@ -1861,23 +1869,47 @@ p, .mag-excerpt, .about-text {
     border-color: var(--accent-secondary);
 }
 
-/* Clamp Scan Context (2 lines max for scan budget) */
-.clamp-3 {
+/* Clamp variants for project context */
+.clamp-2 {
     display: -webkit-box;
-    -webkit-line-clamp: 2; /* Changed from 3 to 2 for stricter scan budget */
-    line-clamp: 2; /* Changed from 3 to 2 */
+    -webkit-line-clamp: 2;
+    line-clamp: 2;
     -webkit-box-orient: vertical;
     overflow: hidden;
     text-overflow: ellipsis;
 }
 
+.clamp-3 {
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+/* Base project context styling */
 .project-context {
     font-size: 0.875rem;
     line-height: 1.6;
     color: var(--text-secondary);
     margin: 0;
+}
+
+/* Featured cards: 3 lines */
+.project-featured .project-context {
     display: -webkit-box;
-    -webkit-line-clamp: 2; /* Enforce 2 lines max */
+    -webkit-line-clamp: 3;
+    line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+/* Non-featured cards: 2 lines for scan-light density */
+.project-compact .project-context {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
     line-clamp: 2;
     -webkit-box-orient: vertical;
     overflow: hidden;
