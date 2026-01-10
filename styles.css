@@ -2338,6 +2338,15 @@ p, .mag-excerpt, .about-text {
     }
 }
 
+@media (max-width: 640px) {
+    .hero {
+        min-height: auto; /* Disable full viewport height on mobile */
+        align-items: flex-start; /* Align to top instead of center */
+        padding-top: 5.5rem; /* Account for fixed nav (~72px) + breathing room */
+        padding-bottom: var(--space-5);
+    }
+}
+
 @media (max-width: 480px) {
     .hero-content {
         gap: var(--space-3);
