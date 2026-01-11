@@ -105,6 +105,10 @@
     --opacity-high: 0.28;
     --opacity-nav: 0.78;
     --opacity-nav-scrolled: 0.92;
+    
+    /* Navigation height for mobile spacing calculations */
+    /* Update this value if nav height changes - currently ~72px on mobile */
+    --nav-h: 72px;
 }
 
 /* Reduced motion support */
@@ -217,6 +221,7 @@ p, .mag-excerpt, .about-text {
    =================================== */
 .hero {
     min-height: 100vh;
+    min-height: 100svh; /* Use small viewport height for mobile browser chrome stability */
     display: flex;
     align-items: center;
     justify-content: center;
@@ -224,7 +229,7 @@ p, .mag-excerpt, .about-text {
     padding-bottom: var(--space-6);
     position: relative;
     background: var(--bg);
-    overflow: hidden;
+    overflow: visible; /* Allow CTA shadows/glow to render without clipping */
 }
 
 .hero::before {
@@ -299,8 +304,7 @@ p, .mag-excerpt, .about-text {
     justify-content: center;
     align-items: center;
     flex-wrap: wrap;
-    /* Extra horizontal padding to prevent shadow/focus ring clipping */
-    padding: var(--space-4) calc(var(--space-4) + 8px);
+    padding: var(--space-4); /* Removed extra padding hack - overflow:visible on parent handles clipping */
     border-radius: 999px;
     background: transparent; /* moved to ::before */
     margin-top: var(--space-1);
@@ -2135,9 +2139,15 @@ p, .mag-excerpt, .about-text {
     }
 
     .hero {
-        min-height: auto;
-        padding-top: 100px;
-        padding-bottom: var(--space-6);
+        /* Use stable viewport height that accounts for mobile browser chrome */
+        /* Fallback chain: 100svh (small viewport) > 100dvh (dynamic) > 100vh (legacy) */
+        min-height: 100vh; /* Legacy fallback */
+        min-height: 100dvh; /* Dynamic viewport height fallback */
+        min-height: 100svh; /* Small viewport height - accounts for mobile browser chrome */
+        /* Top padding accounts for fixed nav + safe area (iOS notch) + breathing room */
+        padding-top: calc(env(safe-area-inset-top, 0px) + var(--nav-h) + var(--space-3));
+        padding-bottom: var(--space-5);
+        align-items: flex-start; /* Align content to top on mobile for better spacing */
         text-align: center;
     }
     
@@ -2146,9 +2156,12 @@ p, .mag-excerpt, .about-text {
         overflow-x: hidden;
     }
     
+    /* Fix container spacing - remove double spacing pattern */
     .container {
-        width: calc(100% - 32px);
-        padding: 0 var(--space-3);
+        width: 100%;
+        max-width: 100%;
+        padding-left: var(--space-3);
+        padding-right: var(--space-3);
     }
     
     /* Improve mobile spacing */
@@ -2191,8 +2204,7 @@ p, .mag-excerpt, .about-text {
     .hero-cta {
         flex-direction: column;
         width: 100%;
-        /* Maintain extra padding on mobile to prevent clipping */
-        padding: var(--space-3) calc(var(--space-3) + 8px);
+        padding: var(--space-3); /* Removed extra padding hack - parent overflow:visible handles clipping */
         gap: var(--space-2);
     }
     
@@ -2338,14 +2350,7 @@ p, .mag-excerpt, .about-text {
     }
 }
 
-@media (max-width: 640px) {
-    .hero {
-        min-height: auto; /* Disable full viewport height on mobile */
-        align-items: flex-start; /* Align to top instead of center */
-        padding-top: 5.5rem; /* Account for fixed nav (~72px) + breathing room */
-        padding-bottom: var(--space-5);
-    }
-}
+/* 640px breakpoint consolidated into 768px above - no separate hero rules needed */
 
 @media (max-width: 480px) {
     .hero-content {
