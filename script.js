@@ -107,19 +107,24 @@ function updateActiveNavLink(scrollY) {
 /**
  * Apply parallax effect to hero section
  * Respects prefers-reduced-motion
+ * Only applies transform, NOT opacity (opacity fade caused "covered" appearance on scroll restore)
  * @param {number} scrollY - Current scroll position
  */
 function updateParallax(scrollY) {
     const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     if (prefersReducedMotion) return;
-    
+
     const hero = document.querySelector('.hero');
     if (!hero) return;
-    
+
     const windowHeight = window.innerHeight;
     if (scrollY < windowHeight) {
+        // Only apply transform, not opacity - opacity fade caused issues on mobile
+        // when browser restored scroll position (hero appeared "covered"/faded)
         hero.style.transform = `translateY(${scrollY * PARALLAX_FACTOR}px)`;
-        hero.style.opacity = 1 - (scrollY / windowHeight);
+    } else {
+        // Reset transform when scrolled past hero
+        hero.style.transform = '';
     }
 }
 

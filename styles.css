@@ -106,9 +106,16 @@
     --opacity-nav: 0.78;
     --opacity-nav-scrolled: 0.92;
     
-    /* Navigation height for mobile spacing calculations */
-    /* Update this value if nav height changes - currently ~72px on mobile */
-    --nav-h: 72px;
+    /* Navigation height for spacing calculations
+       Desktop: 56px content + 32px vertical padding = ~88px
+       Mobile: slightly smaller due to reduced padding
+       Using 80px as safe baseline that works across breakpoints */
+    --nav-h: 80px;
+}
+
+/* Scroll padding for fixed header - prevents anchor links from being covered */
+html {
+    scroll-padding-top: var(--nav-h);
 }
 
 /* Reduced motion support */
@@ -225,7 +232,8 @@ p, .mag-excerpt, .about-text {
     display: flex;
     align-items: center;
     justify-content: center;
-    padding-top: 80px;
+    /* Use CSS variable for consistent header compensation across breakpoints */
+    padding-top: var(--nav-h);
     padding-bottom: var(--space-6);
     position: relative;
     background: var(--bg);
@@ -415,7 +423,7 @@ p, .mag-excerpt, .about-text {
     padding: var(--space-6) var(--space-3);
     background: linear-gradient(180deg, var(--bg) 0%, var(--surface-2) 100%);
     border-top: 1px solid var(--border);
-    scroll-margin-top: 80px; /* For anchor links with sticky header */
+    scroll-margin-top: var(--nav-h); /* For anchor links with sticky header */
 }
 
 .section-header {
@@ -529,7 +537,7 @@ p, .mag-excerpt, .about-text {
     padding: var(--space-6) var(--space-3);
     background: linear-gradient(180deg, var(--bg) 0%, var(--surface-2) 15%, var(--surface-2) 100%);
     position: relative;
-    scroll-margin-top: 80px; /* For anchor links with sticky header */
+    scroll-margin-top: var(--nav-h); /* For anchor links with sticky header */
 }
 
 .projects::before {
@@ -1384,7 +1392,7 @@ p, .mag-excerpt, .about-text {
     padding: var(--space-6) var(--space-3);
     background: var(--bg);
     border-top: 1px solid var(--border);
-    scroll-margin-top: 80px; /* For anchor links with sticky header */
+    scroll-margin-top: var(--nav-h); /* For anchor links with sticky header */
 }
 
 /* Capabilities Tiers */
@@ -1603,7 +1611,7 @@ p, .mag-excerpt, .about-text {
     padding: var(--space-6) var(--space-3);
     background: linear-gradient(180deg, var(--surface-2) 0%, var(--bg) 100%);
     border-top: 1px solid var(--border);
-    scroll-margin-top: 80px; /* For anchor links with sticky header */
+    scroll-margin-top: var(--nav-h); /* For anchor links with sticky header */
 }
 
 .contact-content {
@@ -2226,15 +2234,20 @@ p, .mag-excerpt, .about-text {
 
     .hero {
         /* Use stable viewport height that accounts for mobile browser chrome */
-        /* Fallback chain: 100svh (small viewport) > 100dvh (dynamic) > 100vh (legacy) */
+        /* Fallback chain: 100svh (small viewport) > 100vh (legacy) */
         min-height: 100vh; /* Legacy fallback */
-        min-height: 100dvh; /* Dynamic viewport height fallback */
         min-height: 100svh; /* Small viewport height - accounts for mobile browser chrome */
-        /* Top padding accounts for fixed nav + safe area (iOS notch) + breathing room */
-        padding-top: calc(env(safe-area-inset-top, 0px) + var(--nav-h) + var(--space-3));
+        /* Top padding: safe area (iOS notch) + nav height + breathing room */
+        padding-top: calc(env(safe-area-inset-top, 0px) + var(--nav-h) + var(--space-4));
         padding-bottom: var(--space-5);
-        align-items: flex-start; /* Align content to top on mobile for better spacing */
+        /* Center content vertically - flex-start caused content to appear too high */
+        align-items: center;
         text-align: center;
+    }
+
+    /* Increase scroll padding on mobile for safe area */
+    html {
+        scroll-padding-top: calc(env(safe-area-inset-top, 0px) + var(--nav-h));
     }
     
     /* Ensure no horizontal scroll */
