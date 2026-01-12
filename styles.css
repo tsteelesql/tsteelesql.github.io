@@ -601,6 +601,17 @@ p, .mag-excerpt, .about-text {
     align-items: start; /* Prevent vertical centering when one card expands */
 }
 
+/* Ensure natural height / no clipping for compact grid cards */
+.projects-grid-compact .project-card,
+.projects-grid-compact .project-content {
+    height: auto;
+    min-height: 0;
+}
+
+.projects-grid-compact .project-card {
+    overflow: visible; /* Allow expanded content to render without clipping */
+}
+
 @media (max-width: 1024px) {
     .magazine-grid {
         grid-template-columns: 1fr;
@@ -1390,6 +1401,16 @@ p, .mag-excerpt, .about-text {
     border-bottom: 2px solid var(--border);
 }
 
+/* Section Note - Subtle framing text */
+.section-note {
+    font-size: 0.95rem;
+    line-height: 1.6;
+    color: var(--text-muted);
+    margin-top: var(--space-2);
+    margin-bottom: var(--space-4);
+    max-width: 70ch;
+}
+
 /* Stack Proof Grid */
 .stack-proof-grid {
     display: grid;
@@ -1784,6 +1805,15 @@ p, .mag-excerpt, .about-text {
     padding: var(--space-4);
 }
 
+/* Compact screenshot constraint - prevent image from dominating in 2-col grid */
+.project-compact .project-screenshot img {
+    width: 100%;
+    height: auto;
+    max-height: 340px;
+    object-fit: cover;
+    object-position: top;
+}
+
 /*
  * Project Screenshot - UX Polish
  * - Framed with subtle border to reduce visual dominance
@@ -1928,14 +1958,9 @@ p, .mag-excerpt, .about-text {
     text-overflow: ellipsis;
 }
 
-/* Non-featured cards: 2 lines for scan-light density */
+/* Non-featured cards: allow natural wrapping (no clamp) */
 .project-compact .project-context {
-    display: -webkit-box;
-    -webkit-line-clamp: 2;
-    line-clamp: 2;
-    -webkit-box-orient: vertical;
-    overflow: hidden;
-    text-overflow: ellipsis;
+    display: block;
 }
 
 /* Scan List (Max 3 bullets visible) */
@@ -2093,6 +2118,15 @@ p, .mag-excerpt, .about-text {
     font-size: 0.8125rem; /* Match bullet list font size */
     line-height: 1.55; /* Match bullet list line height */
     color: var(--text-secondary); /* Match bullet list color */
+}
+
+/* Explicit project-meta class for Additional Metadata (same visual weight as list items) */
+.project-section .project-meta {
+    margin: 0;
+    font-size: 0.8125rem;
+    line-height: 1.5;
+    color: var(--text-secondary);
+    opacity: 0.95;
 }
 
 /* Maturity Legend */
@@ -2444,10 +2478,8 @@ p, .mag-excerpt, .about-text {
         font-size: 1.5rem;
     }
     
-    /* Mobile scan view: tighter constraints */
+    /* Mobile scan view: smaller font, no clamp */
     .project-context {
-        -webkit-line-clamp: 2; /* Enforce 2 lines on mobile */
-        line-clamp: 2;
         font-size: 0.8125rem; /* Slightly smaller on mobile */
     }
     

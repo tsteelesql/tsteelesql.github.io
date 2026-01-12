@@ -117,7 +117,7 @@
                   
                         <section class="project-section">
                           <h4>Additional Metadata</h4>
-                          <p>
+                          <p class="project-meta">
                             MIT-licensed Python package (3.10+) using LangChain/LangGraph with optional LLM providers
                             (OpenAI, Anthropic, Ollama).
                           </p>
@@ -141,67 +141,73 @@
                 <!-- Project 2 - Conversational Data Analyst -->
                 <article class="project-card project-compact" id="project-conversational-analyst">
                     <div class="project-content">
-                        <h3 class="project-title">Ask Questions of Your Data—Without Writing SQL</h3>
-
-                        <div class="project-maturity">
-                            <span class="badge badge-alpha">Alpha · Personal Project</span>
+                      <h3 class="project-title">Conversational Data Analyst: Observable LLM-to-SQL Pipeline</h3>
+                  
+                      <div class="project-maturity">
+                        <span class="badge badge-alpha">Alpha · Experimental</span>
+                      </div>
+                  
+                      <p class="project-context">
+                        Natural-language interface for exploring SQLite databases with visibility into schema retrieval,
+                        generated SQL, safety outcomes, execution timing, and visualization selection.
+                      </p>
+                  
+                      <!-- Scan bullets: first-screen scannability -->
+                      <ul class="project-scan-list">
+                        <li>Six-stage LangGraph pipeline: retrieve → generate → validate → execute → visualize → respond</li>
+                        <li>RAG schema retrieval (ChromaDB + sentence-transformers) + SQL generation via OpenAI or Ollama</li>
+                        <li>SELECT-only validator blocks mutation ops, comments, and multi-statement queries</li>
+                      </ul>
+                  
+                      <!-- Screenshot: visible by default -->
+                      <figure class="project-screenshot">
+                        <img
+                          src="assets/ConversationalDataAnalystScreenshot.png"
+                          alt="Conversational Data Analyst Streamlit UI showing schema context, generated SQL, and results visualization"
+                          loading="lazy"
+                        >
+                        <button class="image-expand-btn" aria-label="Expand image to full screen" type="button">
+                          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true">
+                            <line x1="12" y1="5" x2="12" y2="19"></line>
+                            <line x1="5" y1="12" x2="19" y2="12"></line>
+                          </svg>
+                        </button>
+                        <figcaption class="screenshot-caption">Streamlit UI showing stage outputs (schema context, SQL, results)</figcaption>
+                      </figure>
+                  
+                      <!-- Deep details: signals + evidence/limits + metadata -->
+                      <details class="project-details" data-accordion="projects">
+                        <summary class="project-summary">
+                          <span class="summary-label summary-collapsed">View signals, evidence &amp; limits</span>
+                          <span class="summary-label summary-expanded">Hide signals, evidence &amp; limits</span>
+                        </summary>
+                  
+                        <div class="project-deep">
+                          <section class="project-section">
+                            <h4>Signals &amp; Instrumentation</h4>
+                            <ul>
+                              <li>Observable signals per stage: retrieved schema context, generated SQL, validation outcomes</li>
+                              <li>Execution timing and row counts surfaced alongside query results</li>
+                              <li>Visualization type selection rationale based on data shape</li>
+                            </ul>
+                          </section>
+                  
+                          <section class="project-section">
+                            <h4>Evidence &amp; Limits</h4>
+                            <ul class="evidence-limits">
+                              <li><strong>Workloads:</strong> Local exploration and prototyping; understanding LLM-to-SQL pipeline behavior; evaluating RAG-based schema retrieval; testing safety validation approaches</li>
+                              <li><strong>Metrics:</strong> Execution timing and row counts tracked per query; cold start includes schema store initialization (~30s first run)</li>
+                              <li><strong>Known gaps:</strong> No semantic validation of SQL correctness; no LLM API cost tracking; no per-stage latency profiling; no retrieval evaluation metrics; not tested under load; SQLite-only</li>
+                              <li><strong>Next validation step:</strong> Start with questions where you can verify expected SQL; inspect retrieved schema context; test edge cases (ambiguous columns, missing relationships, follow-ups); review blocked queries to map validator boundaries</li>
+                            </ul>
+                          </section>
+                  
+                          <section class="project-section">
+                            <h4>Additional Metadata</h4>
+                            <p class="project-meta">Python package (v0.1.0) with LangGraph orchestration, RAG-based schema retrieval, and a Streamlit UI.</p>
+                          </section>
                         </div>
-
-                        <p class="project-context">
-                            Asking basic questions of your data shouldn&#39;t require knowing SQL—or trusting an LLM blindly. Conversational Data Analyst is an end-to-end system that turns plain-English questions into safe, validated SQL and clear visualizations.
-                        </p>
-
-                        <!-- Scan bullets: above screenshot for first-screen scannability -->
-                        <ul class="project-scan-list">
-                            <li>Plain-English to SQL conversion with schema grounding</li>
-                            <li>RAG-based query generation with validation</li>
-                            <li>Interactive dashboard with visualizations</li>
-                        </ul>
-
-                        <!-- Screenshot: visible by default, after bullets -->
-                        <figure class="project-screenshot">
-                            <img src="assets/ConversationalDataAnalystScreenshot.png" alt="Conversational Data Analyst interface showing natural language query input and generated SQL output" loading="lazy">
-                            <button class="image-expand-btn" aria-label="Expand image to full screen">
-                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
-                                    <line x1="12" y1="5" x2="12" y2="19"></line>
-                                    <line x1="5" y1="12" x2="19" y2="12"></line>
-                                </svg>
-                            </button>
-                            <figcaption class="screenshot-caption">Natural language query converted to validated SQL with visualization</figcaption>
-                        </figure>
-
-                        <details class="project-details" data-accordion="projects">
-                            <summary class="project-summary" aria-expanded="false">
-                                <span class="summary-label summary-collapsed">View system details</span>
-                                <span class="summary-label summary-expanded">Hide system details</span>
-                            </summary>
-
-                            <div class="project-deep">
-                                <section class="project-section">
-                                    <h4>Signals &amp; Instrumentation</h4>
-                                    <ul>
-                                        <li>Query validation and schema grounding</li>
-                                        <li>Retrieval quality metrics</li>
-                                        <li>Cost tracking per query</li>
-                                    </ul>
-                                </section>
-
-                                <section class="project-section">
-                                    <h4>Evidence &amp; Limits</h4>
-                                    <ul class="evidence-limits">
-                                        <li><strong>Workloads:</strong> Synthetic queries designed to test schema grounding and SQL generation accuracy</li>
-                                        <li><strong>Metrics:</strong> Query validation success rate, retrieval relevance scores</li>
-                                        <li><strong>Known gaps:</strong> Limited to single-database scenarios; no multi-table join complexity testing</li>
-                                        <li><strong>Next validation step:</strong> Real-world query logs from production databases</li>
-                                    </ul>
-                                </section>
-
-                                <section class="project-section">
-                                    <h4>Additional Metadata</h4>
-                                    <p>RAG system</p>
-                                </section>
-                            </div>
-                        </details>
+                      </details>
 
                         <div class="mag-actions">
                             <a href="https://github.com/tsteelesql/conversational-analyst" target="_blank" class="mag-btn mag-btn-primary">
@@ -215,70 +221,77 @@
                 </article>
 
                 <!-- Project 3 - LLM Evaluation Framework -->
-                <article class="project-card project-compact" id="project-llm-eval">
+                <article class="project-card project-compact" id="project-rag-eval-framework">
                     <div class="project-content">
-                        <h3 class="project-title">Turning &#39;Feels Better&#39; Into Measurable Improvement</h3>
-
-                        <div class="project-maturity">
-                            <span class="badge badge-alpha">Alpha · Personal Project</span>
+                      <h3 class="project-title">RAG Evaluation Framework</h3>
+                  
+                      <div class="project-maturity">
+                        <span class="badge badge-alpha">Alpha · Early Development</span>
+                      </div>
+                  
+                      <p class="project-context">
+                        Evaluation toolkit for understanding RAG system behavior—retrieval quality, generation signals,
+                        latency, token usage, and cost estimation—before issues surface in production.
+                      </p>
+                  
+                      <!-- Scan bullets: first-screen scannability -->
+                      <ul class="project-scan-list">
+                        <li>Retrieval + generation metrics: Precision/Recall@K, NDCG, MRR; BLEU, ROUGE-L, semantic similarity, LLM-as-Judge</li>
+                        <li>Performance signals: latency percentiles (p50/p95/p99), token usage, cost estimation</li>
+                        <li>Adapter pattern + decorator-based tracking; SQLite persistence and A/B tests with HTML reports</li>
+                      </ul>
+                  
+                      <!-- Screenshot: visible by default -->
+                      <figure class="project-screenshot">
+                        <img
+                          src="assets/LLMEvaluationFrameworkScreenshot.png"
+                          alt="RAG Evaluation Framework dashboard showing metric summaries and evaluation results"
+                          loading="lazy"
+                        >
+                        <button class="image-expand-btn" aria-label="Expand image to full screen" type="button">
+                          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true">
+                            <line x1="12" y1="5" x2="12" y2="19"></line>
+                            <line x1="5" y1="12" x2="19" y2="12"></line>
+                          </svg>
+                        </button>
+                        <figcaption class="screenshot-caption">Evaluation outputs: retrieval quality, generation signals, latency, and cost estimates</figcaption>
+                      </figure>
+                  
+                      <!-- Deep details: signals + evidence/limits + metadata -->
+                      <details class="project-details" data-accordion="projects">
+                        <summary class="project-summary">
+                          <span class="summary-label summary-collapsed">View signals, evidence &amp; limits</span>
+                          <span class="summary-label summary-expanded">Hide signals, evidence &amp; limits</span>
+                        </summary>
+                  
+                        <div class="project-deep">
+                          <section class="project-section">
+                            <h4>Signals &amp; Instrumentation</h4>
+                            <ul>
+                              <li>Retrieval quality: Precision@K, Recall@K, NDCG@K, and MRR to surface where retrieval fails</li>
+                              <li>Generation quality: BLEU/ROUGE-L, semantic similarity, and optional LLM-as-Judge scoring (non-deterministic)</li>
+                              <li>Performance: latency percentiles (p50/p95/p99), token usage, and cost estimation for bottleneck/cost-driver visibility</li>
+                              <li>Structured evaluation runs against JSONL datasets (queries, expected documents, reference answers)</li>
+                              <li>A/B tests compare configurations and can generate an HTML comparison report</li>
+                            </ul>
+                          </section>
+                  
+                          <section class="project-section">
+                            <h4>Evidence &amp; Limits</h4>
+                            <ul class="evidence-limits">
+                              <li><strong>Workloads:</strong> Single-turn RAG evaluation only; not hardened for production monitoring or high-volume continuous evaluation; not tested beyond ~1000 docs/query</li>
+                              <li><strong>Metrics:</strong> Retrieval (Precision/Recall@K, NDCG@K, MRR); generation (BLEU, ROUGE-L, semantic similarity, LLM-as-Judge); performance (latency p50/p95/p99, token usage, cost estimation)</li>
+                              <li><strong>Known gaps:</strong> No multi-turn conversation tracking; no streaming support; no automatic dataset generation; limited provider error handling; BLEU/ROUGE are English-centric</li>
+                              <li><strong>Next validation step:</strong> Not explicitly stated in the repo</li>
+                            </ul>
+                          </section>
+                  
+                          <section class="project-section">
+                            <h4>Additional Metadata</h4>
+                            <p class="project-meta">Python evaluation toolkit for RAG systems with adapter pattern, decorator-based tracking, and A/B testing support.</p>
+                          </section>
                         </div>
-
-                        <p class="project-context">
-                            LLM applications are easy to tweak—and surprisingly hard to evaluate. I built a lightweight framework that instruments real LLM workflows to capture concrete signals—semantic similarity, retrieval quality, latency, and cost—without forcing a rewrite of existing code.
-                        </p>
-
-                        <!-- Scan bullets: above screenshot for first-screen scannability -->
-                        <ul class="project-scan-list">
-                            <li>Workflow instrumentation without code rewrites</li>
-                            <li>Semantic similarity and retrieval quality tracking</li>
-                            <li>Portable JSON-based storage for comparisons</li>
-                        </ul>
-
-                        <!-- Screenshot: visible by default, after bullets -->
-                        <figure class="project-screenshot">
-                            <img src="assets/LLMEvaluationFrameworkScreenshot.png" alt="LLM Evaluation Framework dashboard displaying semantic similarity scores and retrieval quality metrics" loading="lazy">
-                            <button class="image-expand-btn" aria-label="Expand image to full screen">
-                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
-                                    <line x1="12" y1="5" x2="12" y2="19"></line>
-                                    <line x1="5" y1="12" x2="19" y2="12"></line>
-                                </svg>
-                            </button>
-                            <figcaption class="screenshot-caption">Semantic similarity and retrieval metrics captured per workflow run</figcaption>
-                        </figure>
-
-                        <details class="project-details" data-accordion="projects">
-                            <summary class="project-summary" aria-expanded="false">
-                                <span class="summary-label summary-collapsed">View system details</span>
-                                <span class="summary-label summary-expanded">Hide system details</span>
-                            </summary>
-
-                            <div class="project-deep">
-                                <section class="project-section">
-                                    <h4>Signals &amp; Instrumentation</h4>
-                                    <ul>
-                                        <li>Semantic similarity scores</li>
-                                        <li>Retrieval quality metrics</li>
-                                        <li>Latency measurements</li>
-                                        <li>Cost tracking with portable JSON-based storage</li>
-                                    </ul>
-                                </section>
-
-                                <section class="project-section">
-                                    <h4>Evidence &amp; Limits</h4>
-                                    <ul class="evidence-limits">
-                                        <li><strong>Workloads:</strong> Instrumented LLM workflows with synthetic and real prompts</li>
-                                        <li><strong>Metrics:</strong> Semantic similarity scores, retrieval quality, latency, cost per request</li>
-                                        <li><strong>Known gaps:</strong> No A/B testing framework; limited to single-model comparisons</li>
-                                        <li><strong>Next validation step:</strong> Multi-model comparison across different use cases</li>
-                                    </ul>
-                                </section>
-
-                                <section class="project-section">
-                                    <h4>Additional Metadata</h4>
-                                    <p>LLM evaluation</p>
-                                </section>
-                            </div>
-                        </details>
+                      </details>
 
                         <div class="mag-actions">
                             <a href="https://github.com/tsteelesql/rag-eval-framework" target="_blank" class="mag-btn mag-btn-primary">
@@ -302,6 +315,8 @@
                 <p class="section-subtitle">Every technology backed by end-to-end system builds</p>
                 <div class="section-line"></div>
             </div>
+
+            <p class="section-note">Primary focus: AI platform systems, retrieval, evaluation, and observability.</p>
 
             <!-- Primary Capabilities: AI Platform & Retrieval Systems -->
             <div class="capabilities-tier">
@@ -361,6 +376,7 @@
             <!-- Supporting Engineering Capabilities -->
             <div class="capabilities-tier">
                 <h3 class="tier-title">Supporting Engineering Capabilities</h3>
+                <p class="section-note">Supporting capabilities used to design, evaluate, and operate AI systems in production.</p>
                 <div class="stack-proof-grid">
                     <!-- Data Infrastructure Stack -->
                     <div class="stack-category">
@@ -387,7 +403,7 @@
                         <div class="proof-tech">SQL & Query Optimization</div>
                         <div class="proof-link">
                             <span class="proof-arrow">→</span>
-                            <span class="proof-project">15+ Years Production DBA</span>
+                            <span class="proof-project">13+ Years Production DBA</span>
                             <span class="proof-detail">SQL Server expert-level optimization</span>
                         </div>
                     </div>
@@ -496,6 +512,7 @@
             <!-- Certifications -->
             <div class="certifications">
                 <h3 class="certifications-title">Cloud & Data Certifications</h3>
+                <p class="section-note">Certifications supporting production system design and operation.</p>
                 <div class="cert-grid">
                     <div class="cert-badge">
                         <div class="cert-icon">☁️</div>
