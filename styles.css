@@ -1763,15 +1763,15 @@ p, .mag-excerpt, .about-text {
 
 /* Project Card Layout + Hierarchy */
 .project-card {
-    display: grid;
-    grid-template-columns: 1.1fr 1.2fr;
-    gap: 24px;
+    display: flex;
+    flex-direction: column;
     padding: 24px;
     border-radius: 16px;
     border: 1px solid rgba(255, 255, 255, 0.10);
     background: rgba(0, 0, 0, 0.20);
     transition: all var(--transition-base);
     align-self: start; /* Prevent height coupling with sibling cards */
+    /* No fixed height or max-height - allow natural growth */
 }
 
 .project-card:hover {
@@ -1779,53 +1779,69 @@ p, .mag-excerpt, .about-text {
     box-shadow: var(--shadow-md);
 }
 
-/* Compact card layout (vertical stack) */
+/* Compact card layout */
 .project-compact {
-    grid-template-columns: 1fr;
-    gap: var(--space-3);
     padding: var(--space-4);
 }
 
-.project-compact .project-media {
-    order: -1; /* Screenshot first */
-}
-
-.project-compact .project-media img {
-    aspect-ratio: 16 / 9;
-    object-fit: cover;
-}
-
-.project-media {
+/*
+ * Project Screenshot - UX Polish
+ * - Framed with subtle border to reduce visual dominance
+ * - max-height constrains image without clipping content
+ * - Caption provides interpretive context
+ * - Screenshot now appears after scan bullets for better first-screen scannability
+ */
+.project-screenshot {
     position: relative;
-    overflow: visible; /* Changed from hidden to allow button to be visible */
-    border-radius: 12px;
-    /* Screenshot as primary visual anchor */
-    flex-shrink: 0;
+    margin: var(--space-3) 0 var(--space-4) 0; /* Tighter spacing: bullets above, details below */
+    border-radius: var(--radius);
+    border: 1px solid var(--border); /* Subtle frame to set screenshot back visually */
+    background: rgba(31, 38, 48, 0.4); /* Soft background for contained images */
+    overflow: hidden; /* Only screenshot wrapper clips for rounded corners */
 }
 
-.project-media img {
+.project-screenshot img {
     width: 100%;
     height: auto;
-    border-radius: 12px;
+    max-height: 340px; /* Reduced from 420px - constrain dominance on desktop */
+    object-fit: contain; /* Show entire screenshot without cropping */
+    object-position: center;
     display: block;
-    /* Ensure screenshot is prominent */
-    box-shadow: var(--shadow-sm);
+    border-radius: var(--radius) var(--radius) 0 0; /* Top corners only when caption present */
 }
 
-/* Ensure image expand button works in project-media */
-.project-media .image-expand-btn {
+.project-screenshot .image-expand-btn {
     position: absolute;
     top: var(--space-3);
     right: var(--space-3);
     z-index: 10;
 }
 
+/* Screenshot caption - subtle interpretive framing */
+.screenshot-caption {
+    padding: var(--space-2) var(--space-3);
+    font-size: 0.8125rem;
+    line-height: 1.4;
+    color: var(--muted);
+    text-align: center;
+    border-top: 1px solid var(--border);
+    background: rgba(31, 38, 48, 0.6);
+}
+
+/* Featured card screenshot styling */
+.project-featured .project-screenshot {
+    margin: var(--space-3) 0 var(--space-4) 0; /* Consistent tight spacing */
+}
+
+.project-featured .project-screenshot img {
+    max-height: 380px; /* Slightly taller for featured card, but still constrained */
+}
+
 .project-content {
     display: flex;
     flex-direction: column;
     gap: var(--space-3); /* Increased from 10px for better hierarchy */
-    max-height: 85vh; /* Prevent exceeding viewport */
-    overflow: hidden; /* Hide overflow in scan view */
+    /* No max-height or overflow constraints - allow natural growth for expanded details */
 }
 
 .project-title {
@@ -1924,7 +1940,7 @@ p, .mag-excerpt, .about-text {
 
 /* Scan List (Max 3 bullets visible) */
 .project-scan-list {
-    margin: 0;
+    margin: var(--space-2) 0 0 0; /* Top margin for spacing from context paragraph */
     padding-left: 18px;
     opacity: 0.92;
     list-style: none;
@@ -1952,9 +1968,9 @@ p, .mag-excerpt, .about-text {
 
 /* Progressive Disclosure Styling */
 .project-details {
-    margin-top: var(--space-3); /* Increased from 8px */
-    border-top: 1px solid rgba(255, 255, 255, 0.10);
-    padding-top: var(--space-3); /* Increased from 10px */
+    margin-top: var(--space-4); /* Generous spacing from screenshot */
+    border-top: 1px solid var(--border); /* Subtle divider signals "optional depth below" */
+    padding-top: var(--space-3); /* Breathing room above toggle */
 }
 
 /* Remove default marker */
@@ -1966,30 +1982,54 @@ p, .mag-excerpt, .about-text {
     display: none;
 }
 
-/* Make summary look like a subtle link/button */
+/* Disclosure toggle - subtle, subordinate to primary CTA */
 .project-summary {
     cursor: pointer;
     user-select: none;
     display: inline-flex;
     align-items: center;
-    gap: 10px;
-    font-size: 0.9rem;
-    opacity: 0.85;
-    padding: 6px 0;
-    color: var(--text-secondary);
-    transition: opacity var(--transition-base), color var(--transition-base);
+    gap: var(--space-2);
+    font-size: 0.875rem;
+    font-weight: 500;
+    padding: var(--space-2) var(--space-2);
+    color: var(--muted);
+    background: transparent;
+    border: 1px solid transparent;
+    border-radius: var(--radius-sm);
+    transition: all var(--transition-base);
 }
 
 .project-summary:hover {
-    opacity: 1;
-    color: var(--accent);
+    color: var(--text);
+    background: rgba(255, 255, 255, 0.04);
+    border-color: var(--border);
 }
 
 .project-summary:focus-visible {
     outline: none;
     box-shadow: var(--focus-ring);
     outline-offset: var(--focus-ring-offset);
-    border-radius: var(--radius-sm);
+    background: rgba(255, 255, 255, 0.04);
+    border-color: var(--border);
+}
+
+/* Chevron indicator - shows expandability */
+.project-summary::after {
+    content: '';
+    display: inline-block;
+    width: 6px;
+    height: 6px;
+    border-right: 1.5px solid currentColor;
+    border-bottom: 1.5px solid currentColor;
+    transform: rotate(45deg);
+    transition: transform 160ms ease;
+    opacity: 0.7;
+    margin-left: var(--space-1);
+    flex-shrink: 0;
+}
+
+.project-details[open] .project-summary::after {
+    transform: rotate(-135deg);
 }
 
 /* Only show correct label depending on open state */
@@ -2119,13 +2159,6 @@ p, .mag-excerpt, .about-text {
         gap: var(--space-4);
     }
 
-    .project-featured {
-        grid-template-columns: 1fr;
-    }
-
-    .project-compact {
-        grid-template-columns: 1fr;
-    }
 }
 
 @media (max-width: 768px) {
@@ -2332,22 +2365,26 @@ p, .mag-excerpt, .about-text {
     
     /* Project Card Mobile */
     .project-card {
-        grid-template-columns: 1fr;
         padding: var(--space-3);
-    }
-
-    .project-featured {
-        grid-template-columns: 1fr;
     }
 
     .projects-grid-compact {
         grid-template-columns: 1fr;
     }
-    
-    /* Mobile scan view constraints */
-    .project-content {
-        max-height: 75vh; /* Stricter constraint on mobile */
+
+    .project-screenshot {
+        margin: var(--space-2) 0 var(--space-3) 0; /* Tighter on mobile */
     }
+
+    .project-screenshot img {
+        max-height: none; /* Allow full height on mobile */
+    }
+
+    .screenshot-caption {
+        font-size: 0.75rem;
+        padding: var(--space-2);
+    }
+
 }
 
 /* 640px breakpoint consolidated into 768px above - no separate hero rules needed */
@@ -2397,11 +2434,10 @@ p, .mag-excerpt, .about-text {
     
     .project-content {
         gap: var(--space-2); /* Tighter spacing on mobile */
-        max-height: 70vh; /* Stricter constraint on small screens */
     }
-    
+
     .project-scan-list {
-        margin-top: var(--space-2);
+        margin: var(--space-1) 0 0 0; /* Tighter top margin on mobile */
     }
 
     .btn, .contact-btn {
@@ -2414,7 +2450,20 @@ p, .mag-excerpt, .about-text {
         max-width: 100%;
         overflow: hidden;
     }
-    
+
+    .project-screenshot {
+        margin: var(--space-2) 0 var(--space-2) 0; /* Tighter spacing on small screens */
+    }
+
+    .project-featured .project-screenshot img {
+        max-height: 280px; /* Constrained on small screens */
+    }
+
+    .screenshot-caption {
+        font-size: 0.6875rem;
+        padding: var(--space-1) var(--space-2);
+    }
+
     .mag-tech {
         gap: var(--space-1);
     }

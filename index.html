@@ -53,65 +53,77 @@
 
             <!-- Featured Project - Full Width -->
             <article class="project-card project-featured" id="project-agentlint">
-                <div class="project-media">
-                    <img src="assets/agentlint_overview.png" alt="AgentLint Dashboard screenshot" loading="lazy">
-                    <button class="image-expand-btn" aria-label="Expand image to full screen">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
-                            <line x1="12" y1="5" x2="12" y2="19"></line>
-                            <line x1="5" y1="12" x2="19" y2="12"></line>
-                        </svg>
-                    </button>
-                </div>
-
                 <div class="project-content">
-                    <h3 class="project-title">Catching Hidden Risks in AI-Generated Code</h3>
+                    <h3 class="project-title">
+                      AgentLint: Evidence-Driven Code Review with Optional LLM Explanations
+                    </h3>
 
                     <div class="project-maturity">
-                        <span class="badge badge-alpha">Alpha · Personal Project</span>
+                      <span class="badge badge-alpha">Alpha (v0.1.0) · Personal Project</span>
                     </div>
 
+                    <!-- Clamp-safe: complete meaning within 2 lines (compact) / 3 lines (featured) -->
                     <p class="project-context">
-                        AI-generated code often appears correct while hiding security risks, performance traps, and reliability failures that surface only after deployment. These issues are easy to miss in prompt-only or single-pass reviews.
+                      As AI-assisted code and data pipelines scale, teams lose visibility into where risk accumulates.
+                      AgentLint surfaces evidence-bound security, performance, and quality signals before issues ship.
                     </p>
 
+                    <!-- Scan bullets: above screenshot for first-screen scannability -->
                     <ul class="project-scan-list">
-                        <li>Multi-perspective review across security, performance, and quality</li>
-                        <li>Findings grouped by severity and failure category</li>
-                        <li>Dashboard-first workflow for prioritization, not just detection</li>
+                      <li>Multi-agent review across Security, Performance, and Quality for Python and SQL</li>
+                      <li>Three modes expose cost/latency tradeoffs: default (&lt;1s/file), explain (2–5s), deep (10–30s)</li>
+                      <li>Findings persist across runs with CLI, JSON export, and a Streamlit dashboard</li>
                     </ul>
 
-                        <details class="project-details" data-accordion="projects">
-                            <summary class="project-summary" aria-expanded="false">
-                                <span class="summary-label summary-collapsed">View system details</span>
-                                <span class="summary-label summary-expanded">Hide system details</span>
-                            </summary>
-
-                            <div class="project-deep">
-                                <section class="project-section">
-                                    <h4>Signals &amp; Instrumentation</h4>
-                                    <ul>
-                                        <li>Review findings categorized by agent type</li>
-                                        <li>Severity levels tracked per run</li>
-                                        <li>Actionable recommendations with code references</li>
-                                    </ul>
-                                </section>
-
-                                <section class="project-section">
-                                    <h4>Evidence &amp; Limits</h4>
-                                    <ul class="evidence-limits">
-                                        <li><strong>Workloads: Personal and synthetic code samples designed to reflect common AI-generated patterns:</strong> </li>
-                                        <li><strong>Metrics: Issue counts by category and severity; review consistency across runs</strong> </li>
-                                        <li><strong>Known gaps: No live production traffic; limited adversarial testing</strong> </li>
-                                        <li><strong>Next validation step: Shadow evaluation alongside real development workflows</strong> </li>
-                                    </ul>
-                                </section>
-
-                                <section class="project-section">
-                                    <h4>Additional Metadata</h4>
-                                    <p>Multi-agent system</p>
-                                </section>
-                            </div>
-                        </details>
+                    <!-- Screenshot: visible by default, after bullets -->
+                    <figure class="project-screenshot">
+                        <img src="assets/agentlint_overview.png" alt="AgentLint Dashboard showing code review findings with severity indicators and file-level analysis" loading="lazy">
+                        <button class="image-expand-btn" aria-label="Expand image to full screen">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                                <line x1="12" y1="5" x2="12" y2="19"></line>
+                                <line x1="5" y1="12" x2="19" y2="12"></line>
+                            </svg>
+                        </button>
+                        <figcaption class="screenshot-caption">Streamlit dashboard showing findings persisted across runs</figcaption>
+                    </figure>
+                  
+                    <details class="project-details" data-accordion="projects">
+                      <summary class="project-summary" aria-expanded="false">
+                        <span class="summary-label summary-collapsed">View signals, evidence, and limits</span>
+                        <span class="summary-label summary-expanded">Hide signals, evidence, and limits</span>
+                      </summary>
+                  
+                      <div class="project-deep">
+                        <section class="project-section">
+                          <h4>Signals &amp; Instrumentation</h4>
+                          <ul>
+                            <li>LangGraph-orchestrated workflow runs Security → Performance → Quality per file</li>
+                            <li>CLI commands for review, list, show, init, and dashboard; JSON output for integration</li>
+                            <li>SQLAlchemy-backed persistence supports repeatable runs and historical inspection</li>
+                            <li>Streamlit dashboard enables review outside the terminal</li>
+                            <li>Security findings reference CWEs (e.g., CWE-89, CWE-798, CWE-327, CWE-22, CWE-78, CWE-95, CWE-502)</li>
+                          </ul>
+                        </section>
+                  
+                        <section class="project-section">
+                          <h4>Evidence &amp; Limits</h4>
+                          <ul class="evidence-limits">
+                            <li><strong>Workloads:</strong> Python (.py) and SQL (.sql) files analyzed independently (no cross-file analysis)</li>
+                            <li><strong>Metrics:</strong> File path, line number, category, severity, rule_id, description, confidence score; mode speed as listed above</li>
+                            <li><strong>Known gaps:</strong> No cross-file analysis, data-flow tracking, or type inference; limited SQL dialect support; no FP/FN benchmarks or large-repo perf tests</li>
+                            <li><strong>Next validation step:</strong> Benchmark false positive/negative rates against known-vulnerable codebases</li>
+                          </ul>
+                        </section>
+                  
+                        <section class="project-section">
+                          <h4>Additional Metadata</h4>
+                          <p>
+                            MIT-licensed Python package (3.10+) using LangChain/LangGraph with optional LLM providers
+                            (OpenAI, Anthropic, Ollama).
+                          </p>
+                        </section>
+                      </div>
+                    </details>
 
                         <div class="mag-actions">
                             <a href="https://github.com/tsteelesql/AgentLint" target="_blank" class="mag-btn mag-btn-primary">
@@ -128,16 +140,6 @@
             <div class="projects-grid-compact">
                 <!-- Project 2 - Conversational Data Analyst -->
                 <article class="project-card project-compact" id="project-conversational-analyst">
-                    <div class="project-media">
-                        <img src="assets/ConversationalDataAnalystScreenshot.png" alt="Conversational Data Analyst screenshot" loading="lazy">
-                        <button class="image-expand-btn" aria-label="Expand image to full screen">
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
-                                <line x1="12" y1="5" x2="12" y2="19"></line>
-                                <line x1="5" y1="12" x2="19" y2="12"></line>
-                            </svg>
-                        </button>
-                    </div>
-
                     <div class="project-content">
                         <h3 class="project-title">Ask Questions of Your Data—Without Writing SQL</h3>
 
@@ -149,11 +151,24 @@
                             Asking basic questions of your data shouldn&#39;t require knowing SQL—or trusting an LLM blindly. Conversational Data Analyst is an end-to-end system that turns plain-English questions into safe, validated SQL and clear visualizations.
                         </p>
 
+                        <!-- Scan bullets: above screenshot for first-screen scannability -->
                         <ul class="project-scan-list">
                             <li>Plain-English to SQL conversion with schema grounding</li>
                             <li>RAG-based query generation with validation</li>
                             <li>Interactive dashboard with visualizations</li>
                         </ul>
+
+                        <!-- Screenshot: visible by default, after bullets -->
+                        <figure class="project-screenshot">
+                            <img src="assets/ConversationalDataAnalystScreenshot.png" alt="Conversational Data Analyst interface showing natural language query input and generated SQL output" loading="lazy">
+                            <button class="image-expand-btn" aria-label="Expand image to full screen">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                                    <line x1="12" y1="5" x2="12" y2="19"></line>
+                                    <line x1="5" y1="12" x2="19" y2="12"></line>
+                                </svg>
+                            </button>
+                            <figcaption class="screenshot-caption">Natural language query converted to validated SQL with visualization</figcaption>
+                        </figure>
 
                         <details class="project-details" data-accordion="projects">
                             <summary class="project-summary" aria-expanded="false">
@@ -201,16 +216,6 @@
 
                 <!-- Project 3 - LLM Evaluation Framework -->
                 <article class="project-card project-compact" id="project-llm-eval">
-                    <div class="project-media">
-                        <img src="assets/LLMEvaluationFrameworkScreenshot.png" alt="LLM Evaluation Framework screenshot" loading="lazy">
-                        <button class="image-expand-btn" aria-label="Expand image to full screen">
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
-                                <line x1="12" y1="5" x2="12" y2="19"></line>
-                                <line x1="5" y1="12" x2="19" y2="12"></line>
-                            </svg>
-                        </button>
-                    </div>
-
                     <div class="project-content">
                         <h3 class="project-title">Turning &#39;Feels Better&#39; Into Measurable Improvement</h3>
 
@@ -222,11 +227,24 @@
                             LLM applications are easy to tweak—and surprisingly hard to evaluate. I built a lightweight framework that instruments real LLM workflows to capture concrete signals—semantic similarity, retrieval quality, latency, and cost—without forcing a rewrite of existing code.
                         </p>
 
+                        <!-- Scan bullets: above screenshot for first-screen scannability -->
                         <ul class="project-scan-list">
                             <li>Workflow instrumentation without code rewrites</li>
                             <li>Semantic similarity and retrieval quality tracking</li>
                             <li>Portable JSON-based storage for comparisons</li>
                         </ul>
+
+                        <!-- Screenshot: visible by default, after bullets -->
+                        <figure class="project-screenshot">
+                            <img src="assets/LLMEvaluationFrameworkScreenshot.png" alt="LLM Evaluation Framework dashboard displaying semantic similarity scores and retrieval quality metrics" loading="lazy">
+                            <button class="image-expand-btn" aria-label="Expand image to full screen">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                                    <line x1="12" y1="5" x2="12" y2="19"></line>
+                                    <line x1="5" y1="12" x2="19" y2="12"></line>
+                                </svg>
+                            </button>
+                            <figcaption class="screenshot-caption">Semantic similarity and retrieval metrics captured per workflow run</figcaption>
+                        </figure>
 
                         <details class="project-details" data-accordion="projects">
                             <summary class="project-summary" aria-expanded="false">
