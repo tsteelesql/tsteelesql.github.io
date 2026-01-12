@@ -2039,14 +2039,15 @@ p, .mag-excerpt, .about-text {
 
 /* Deep dive styling: clearly subordinate */
 .project-deep {
-    margin-top: var(--space-4); /* Increased from 12px */
+    margin-top: var(--space-4);
     display: grid;
-    gap: 16px;
+    gap: var(--space-4); /* Consistent spacing between sections */
     opacity: 0.95;
+    max-width: 820px; /* Constrain line-length for readability on wide screens */
 }
 
 .project-section h4 {
-    margin: 0 0 8px 0;
+    margin: 0 0 var(--space-2) 0; /* Normalize heading-to-list spacing */
     font-size: 0.95rem;
     opacity: 0.9;
     color: var(--accent-secondary);
@@ -2060,12 +2061,14 @@ p, .mag-excerpt, .about-text {
     margin: 0;
     padding-left: 18px;
     list-style: none;
+    display: grid;
+    gap: 8px; /* Consistent spacing via grid gap instead of per-li margins */
 }
 
 .project-section ul li {
-    margin: 6px 0;
+    margin: 0; /* Spacing controlled by parent grid gap */
     font-size: 0.8125rem;
-    line-height: 1.5;
+    line-height: 1.55; /* Slight bump for multi-line readability */
     color: var(--text-secondary);
     position: relative;
 }
@@ -2074,11 +2077,22 @@ p, .mag-excerpt, .about-text {
     content: '•';
     position: absolute;
     left: -12px;
+    top: 0.05em; /* Stabilize bullet alignment for multi-line items */
     color: var(--accent-secondary);
 }
 
-.evidence-limits li {
-    margin: 6px 0;
+/* Evidence/Limits label scanability */
+.evidence-limits li strong {
+    color: var(--text-primary);
+    font-weight: 700;
+}
+
+/* Additional Metadata paragraphs match bullet list styling */
+.project-section p {
+    margin: 0;
+    font-size: 0.8125rem; /* Match bullet list font size */
+    line-height: 1.55; /* Match bullet list line height */
+    color: var(--text-secondary); /* Match bullet list color */
 }
 
 /* Maturity Legend */
@@ -2157,6 +2171,11 @@ p, .mag-excerpt, .about-text {
     .projects-grid-compact {
         grid-template-columns: 1fr;
         gap: var(--space-4);
+    }
+
+    /* Expanded details: full width on smaller screens */
+    .project-deep {
+        max-width: 100%;
     }
 
 }
